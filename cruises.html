@@ -18,9 +18,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.9
 .nav-cta{background:var(--gold)!important;color:var(--navy)!important;padding:8px 18px;border-radius:50px;font-weight:800!important;}
 
 .hero{min-height:60vh;background:url('https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/norwegiangem.jpg') center center / cover no-repeat;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-align:center;padding:140px 40px 80px;}
+.hero::after{content:'';position:absolute;inset:0;background:rgba(10,22,40,0.35);}
 .hero-bg{display:none;}
 .hero-content{position:relative;z-index:2;max-width:750px;text-shadow:0 2px 12px rgba(0,0,0,0.6);}
-.eyebrow{display:inline-block;background:rgba(245,166,35,0.15);border:1px solid rgba(245,166,35,0.5);color:var(--gold);font-size:0.78rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:6px 18px;border-radius:50px;margin-bottom:20px;}
+.eyebrow{display:inline-block;background:rgba(245,166,35,0.95);border:1px solid rgba(245,166,35,1);color:var(--navy);font-size:0.78rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:6px 18px;border-radius:50px;margin-bottom:20px;text-shadow:none;}
 .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:20px;}
 .hero h1 em{font-style:italic;color:var(--gold);}
 .hero p{font-size:1.05rem;color:rgba(255,255,255,0.8);line-height:1.7;max-width:580px;margin:0 auto 32px;}
