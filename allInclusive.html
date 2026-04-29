@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All-Inclusive Resorts | Gather & Go Travel Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--gold:#f5a623;--gold-light:#ffd980;--magic-blue:#1a6bb5;--magic-teal:#00b4d8;--sand:#e8c98a;--ocean:#0077b6;--palm:#2d6a4f;--cream:#fffdf6;--warm-white:#fff9ee;--text-dark:#1a1a2e;--text-mid:#4a4a6a;--beaches-blue:#0047ab;--sandals-red:#c0392b;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.97);backdrop-filter:blur(10px);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(245,166,35,0.3);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold);text-decoration:none;letter-spacing:0.5px;}
+.nav-logo span{color:#fff;}
+.nav-links{display:flex;gap:22px;list-style:none;align-items:center;}
+.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.82rem;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-cta{background:var(--gold)!important;color:var(--navy)!important;padding:8px 18px;border-radius:50px;font-weight:800!important;}
+
+.hero{min-height:60vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-align:center;padding:140px 40px 80px;background:var(--navy);}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(0,119,182,0.4) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 20% 20%,rgba(45,106,79,0.25) 0%,transparent 55%);}
+.hero-content{position:relative;z-index:2;max-width:750px;}
+.eyebrow{display:inline-block;background:rgba(245,166,35,0.15);border:1px solid rgba(245,166,35,0.5);color:var(--gold);font-size:0.78rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:6px 18px;border-radius:50px;margin-bottom:20px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:20px;}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero p{font-size:1.05rem;color:rgba(255,255,255,0.8);line-height:1.7;max-width:580px;margin:0 auto 32px;}
+.btn-primary{background:var(--gold);color:var(--navy);font-weight:800;font-size:1rem;padding:14px 34px;border-radius:50px;text-decoration:none;display:inline-block;transition:transform 0.2s,background 0.2s;}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
+.btn-outline{background:transparent;color:#fff;font-weight:700;font-size:1rem;padding:13px 34px;border-radius:50px;border:1.5px solid rgba(255,255,255,0.4);text-decoration:none;display:inline-block;transition:border-color 0.2s,transform 0.2s;margin-left:12px;}
+.btn-outline:hover{border-color:#fff;transform:translateY(-2px);}
+
+section{padding:80px 40px;}
+.inner{max-width:1100px;margin:0 auto;}
+.section-eyebrow{font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--ocean);margin-bottom:12px;display:block;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;color:var(--navy);line-height:1.15;margin-bottom:16px;}
+.section-title em{font-style:italic;color:var(--ocean);}
+.section-sub{font-size:1rem;color:var(--text-mid);line-height:1.7;max-width:620px;}
+
+.img-ph{width:100%;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,0.75);font-size:0.85rem;font-weight:700;text-align:center;gap:8px;border:2px dashed rgba(255,255,255,0.3);}
+.img-ph .icon{font-size:2.5rem;opacity:0.8;}
+.img-ph .lbl{font-size:0.78rem;opacity:0.6;margin-top:4px;}
+.dark-section{background:var(--navy);padding:80px 40px;}
+.blue-section{background:#f0f7ff;padding:80px 40px;}
+.sand-section{background:#fffbf0;padding:80px 40px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
+.perks-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:20px;}
+.perks-list li{display:flex;align-items:flex-start;gap:12px;font-size:0.95rem;color:var(--text-dark);font-weight:600;}
+.perk-check{width:22px;height:22px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-size:0.65rem;color:var(--navy);font-weight:900;}
+
+/* BEACHES SECTION */
+.beaches-hero{background:linear-gradient(135deg,#003a8a,#0047ab,#0077d4);border-radius:24px;padding:48px;margin-bottom:40px;position:relative;overflow:hidden;}
+.beaches-hero::before{content:'🏖️';position:absolute;top:-20px;right:30px;font-size:8rem;opacity:0.08;}
+.beaches-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.75rem;font-weight:800;padding:5px 14px;border-radius:50px;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;}
+.beaches-hero h3{font-family:'Playfair Display',serif;font-size:2rem;color:#fff;margin-bottom:12px;}
+.beaches-hero p{font-size:0.95rem;color:rgba(255,255,255,0.8);line-height:1.7;max-width:550px;}
+
+/* RESORT DESTINATION CARDS */
+.resort-dest-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:36px;}
+.resort-dest-card{border-radius:20px;overflow:hidden;transition:transform 0.25s,box-shadow 0.25s;}
+.resort-dest-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.12);}
+.rd-img{height:200px;display:flex;align-items:flex-end;padding:22px;position:relative;}
+.rd-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-65%);font-size:3rem;opacity:0.5;}
+.rd-jamaica{background:linear-gradient(160deg,#0a3a1a,#1a7a3a,#2aaa5a);}
+.rd-turks{background:linear-gradient(160deg,#0a2a5a,#0a6ab5,#00b4d8);}
+.rd-bahamas{background:linear-gradient(160deg,#0a3a4a,#0a7a8a,#00aab5);}
+.rd-antigua{background:linear-gradient(160deg,#3a0a1a,#8a1a3a,#c02a5a);}
+.rd-st-lucia{background:linear-gradient(160deg,#0a3a0a,#1a6a1a,#2a9a4a);}
+.rd-label h4{font-family:'Playfair Display',serif;font-size:1rem;color:#fff;font-weight:700;}
+.rd-label p{font-size:0.75rem;color:rgba(255,255,255,0.7);margin-top:3px;}
+.rd-body{background:#fff;padding:20px 22px;border:1.5px solid rgba(0,119,182,0.1);border-top:none;}
+.rd-brand{font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;display:block;}
+.brand-beaches{color:var(--beaches-blue);}
+.brand-sandals{color:var(--sandals-red);}
+.brand-both{color:var(--palm);}
+.rd-body p{font-size:0.83rem;color:var(--text-mid);line-height:1.6;}
+
+/* WHAT'S INCLUDED */
+.included-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:36px;}
+.included-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:20px;text-align:center;}
+.included-icon{font-size:2rem;margin-bottom:10px;}
+.included-card h4{color:var(--gold);font-size:0.82rem;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;}
+.included-card p{font-size:0.8rem;color:rgba(255,255,255,0.7);line-height:1.55;}
+
+/* SANDALS SECTION */
+.sandals-header{background:linear-gradient(135deg,#8a0a0a,#c0392b,#e05a3a);border-radius:24px;padding:48px;margin-bottom:40px;position:relative;overflow:hidden;}
+.sandals-header::before{content:'🥂';position:absolute;top:-20px;right:30px;font-size:8rem;opacity:0.08;}
+.sandals-badge{display:inline-block;background:rgba(255,255,255,0.2);color:#fff;font-size:0.75rem;font-weight:800;padding:5px 14px;border-radius:50px;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;border:1px solid rgba(255,255,255,0.3);}
+.sandals-header h3{font-family:'Playfair Display',serif;font-size:2rem;color:#fff;margin-bottom:12px;}
+.sandals-header p{font-size:0.95rem;color:rgba(255,255,255,0.85);line-height:1.7;max-width:550px;}
+
+/* KIDS FEATURES */
+.kids-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:36px;}
+.kids-card{background:#fff;border-radius:16px;padding:24px;border:1.5px solid rgba(0,71,171,0.1);text-align:center;}
+.kids-icon{font-size:2.2rem;margin-bottom:12px;}
+.kids-card h3{font-size:0.95rem;font-weight:800;color:var(--navy);margin-bottom:8px;}
+.kids-card p{font-size:0.83rem;color:var(--text-mid);line-height:1.6;}
+
+/* FORM */
+.form-section{background:var(--navy);padding:80px 40px;}
+.form-wrap{max-width:720px;margin:0 auto;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{display:flex;flex-direction:column;gap:7px;}
+.form-group.full{grid-column:1/-1;}
+.form-group label{font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.8px;color:rgba(255,255,255,0.65);}
+.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);border-radius:10px;padding:12px 16px;color:#fff;font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:600;outline:none;width:100%;transition:border-color 0.2s;}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.3);}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
+.form-group select option{background:var(--navy);color:#fff;}
+.form-group textarea{resize:vertical;min-height:110px;}
+.checkbox-group{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;}
+.checkbox-label{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,0.8);font-size:0.85rem;font-weight:600;cursor:pointer;}
+.checkbox-label input[type=checkbox]{width:16px;height:16px;accent-color:var(--gold);}
+.form-submit{width:100%;margin-top:24px;background:var(--gold);color:var(--navy);border:none;border-radius:50px;padding:16px;font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;transition:background 0.2s,transform 0.2s;}
+.form-submit:hover{background:var(--gold-light);transform:translateY(-2px);}
+.form-note{text-align:center;margin-top:14px;font-size:0.8rem;color:rgba(255,255,255,0.4);}
+
+footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(255,255,255,0.1);}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:50px;margin-bottom:32px;}
+.footer-brand p{font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.7;margin-top:12px;max-width:300px;}
+.footer-col h4{font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:16px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:9px;}
+.footer-col a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.85rem;transition:color 0.2s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto;}
+.footer-bottom p{font-size:0.75rem;color:rgba(255,255,255,0.3);}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.sparkle{position:fixed;pointer-events:none;z-index:9999;width:7px;height:7px;border-radius:50%;background:var(--gold);animation:sparkle-fade 0.6s ease forwards;}
+@keyframes sparkle-fade{0%{opacity:1;transform:scale(1) translateY(0);}100%{opacity:0;transform:scale(0.2) translateY(-20px);}}
+@media(max-width:768px){nav{padding:14px 20px;}.nav-links{display:none;}section{padding:60px 24px;}.two-col{grid-template-columns:1fr;gap:36px;}.form-grid{grid-template-columns:1fr;}.footer-inner{grid-template-columns:1fr;gap:28px;}.footer-bottom{flex-direction:column;gap:8px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Gather <span>&</span> Go Travel Co.</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="disney.html">Disney</a></li>
+    <li><a href="cruises.html">Cruises</a></li>
+    <li><a href="universal.html">Universal</a></li>
+    <li><a href="allInclusive.html" class="active">All-Inclusive</a></li>
+    <li><a href="#ai-form" class="nav-cta">Plan My Getaway ✦</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="eyebrow">🌴 All-Inclusive Specialists</div>
+    <h1>Unpack Once.<br><em>Relax Completely.</em></h1>
+    <p>Pristine beaches, unlimited dining, pools, activities, and entertainment — all included in one price. Whether it's a family adventure at Beaches or a romantic escape at Sandals, we'll find your perfect paradise.</p>
+    <a href="#ai-form" class="btn-primary">🌺 Find My Resort</a>
+    <a href="#beaches" class="btn-outline">Explore Beaches Resorts</a>
+  </div>
+</section>
+
+<!-- WHY ALL-INCLUSIVE -->
+<section style="background:var(--warm-white);">
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <span class="section-eyebrow">Why All-Inclusive?</span>
+        <h2 class="section-title">Everything You Need. <em>Nothing Extra.</em></h2>
+        <p class="section-sub">The beauty of an all-inclusive resort is freedom. Freedom from planning every meal, budgeting every drink, or negotiating every activity. You pay once — then you just enjoy.</p>
+        <ul class="perks-list reveal">
+          <li><span class="perk-check">✓</span> All meals, snacks & drinks included</li>
+          <li><span class="perk-check">✓</span> Water sports, land activities & nightly entertainment</li>
+          <li><span class="perk-check">✓</span> Kids clubs & teen programs at family resorts</li>
+          <li><span class="perk-check">✓</span> No tipping required at most resorts</li>
+          <li><span class="perk-check">✓</span> Predictable, easy-to-budget vacation cost</li>
+          <li><span class="perk-check">✓</span> Multiple pools, beach access & spa facilities</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="img-ph" style="height:360px;background:linear-gradient(150deg,#0a3a5a,#0077b6,#00b4d8);">
+          <div class="icon">🌊</div>
+          <div>All-Inclusive Resort Beach Photo</div>
+          <div class="lbl">Add your favorite resort or beach photo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEACHES RESORTS SPOTLIGHT -->
+<section id="beaches" style="background:var(--cream);">
+  <div class="inner">
+    <div class="beaches-hero reveal">
+      <span class="beaches-badge">🏖️ Our Family Favorite</span>
+      <h3>Beaches Resorts — Where Families Come Alive</h3>
+      <p>Beaches is the family-friendly sister brand of Sandals — and it's in a category all its own. Purpose-built for families with children of all ages, Beaches resorts combine luxury, fun, and the ease of all-inclusive in destinations that will blow your family's minds.</p>
+    </div>
+
+    <div class="two-col reveal">
+      <div>
+        <span class="section-eyebrow">Why Beaches?</span>
+        <h2 class="section-title">Luxury + Family = <em>Beaches</em></h2>
+        <p class="section-sub">Beaches is not just a resort — it's a fully planned family vacation in one beautiful location. The kids are entertained all day. The adults get to actually relax. And everyone eats well.</p>
+        <ul class="perks-list">
+          <li><span class="perk-check">✓</span> Sesame Street character meet & greets — kids go wild</li>
+          <li><span class="perk-check">✓</span> Dedicated kids clubs for every age (0–17)</li>
+          <li><span class="perk-check">✓</span> Massive waterparks on-site at Turks & Caicos location</li>
+          <li><span class="perk-check">✓</span> Xbox game rooms, teen lounges & activities</li>
+          <li><span class="perk-check">✓</span> Up to 45 specialty restaurants included</li>
+          <li><span class="perk-check">✓</span> Scuba diving, water sports & excursions included</li>
+          <li><span class="perk-check">✓</span> Butler service available in top suites</li>
+          <li><span class="perk-check">✓</span> Special celebrations — birthdays, anniversaries, first trips</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="img-ph" style="height:380px;background:linear-gradient(150deg,#003a8a,#0047ab,#0077d4);">
+          <div class="icon">🏖️</div>
+          <div>Beaches Resort Family Photo</div>
+          <div class="lbl">Add a photo of Beaches Turks & Caicos or Negril</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kids features -->
+    <div style="margin-top:60px;">
+      <div style="text-align:center;margin-bottom:30px;">
+        <span class="section-eyebrow">Made for Kids</span>
+        <h2 class="section-title">Every Child. <em>Every Age.</em></h2>
+      </div>
+      <div class="kids-grid reveal">
+        <div class="kids-card">
+          <div class="kids-icon">👶</div>
+          <h3>Babies & Toddlers</h3>
+          <p>Certified nannies, dedicated baby gear, and a nurturing program for the tiniest travelers. Parents, breathe easy.</p>
+        </div>
+        <div class="kids-card">
+          <div class="kids-icon">🎪</div>
+          <h3>Sesame Street</h3>
+          <p>Elmo, Cookie Monster, Abby Cadabby & friends are resort residents. Character breakfasts, parades & shows daily.</p>
+        </div>
+        <div class="kids-card">
+          <div class="kids-icon">🎮</div>
+          <h3>Teens & Tweens</h3>
+          <p>Dedicated teen lounges with gaming, social events, watersports, and activities designed for older kids who'd rather not hang with mom & dad.</p>
+        </div>
+        <div class="kids-card">
+          <div class="kids-icon">🌊</div>
+          <h3>Epic Waterparks</h3>
+          <p>The Beaches Turks & Caicos has one of the Caribbean's best resort waterparks — right on the property. Slides, rivers, splash zones & more.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEACHES DESTINATIONS -->
+<section class="blue-section">
+  <div class="inner">
+    <div style="text-align:center;margin-bottom:10px;">
+      <span class="section-eyebrow">Beaches Locations</span>
+      <h2 class="section-title">Choose Your <em>Paradise</em></h2>
+      <p class="section-sub" style="margin:0 auto;">Beaches operates in two stunning Caribbean destinations, each with their own unique character and beauty. We'll help you pick the right one for your family.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px;" class="reveal">
+      <div style="background:#fff;border-radius:22px;overflow:hidden;border:1.5px solid rgba(0,71,171,0.1);">
+        <div class="img-ph" style="height:220px;background:linear-gradient(160deg,#0a2a5a,#0a6ab5,#00b4d8);border-radius:0;">
+          <div class="icon">🏝️</div>
+          <div>Turks & Caicos Photo</div>
+          <div class="lbl">Add a photo of Grace Bay Beach</div>
+        </div>
+        <div style="padding:28px;">
+          <div style="font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;color:var(--beaches-blue);margin-bottom:8px;">⭐ Most Popular</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--navy);margin-bottom:10px;">Beaches Turks & Caicos</h3>
+          <p style="font-size:0.87rem;color:var(--text-mid);line-height:1.65;">The flagship Beaches resort — and one of the best family resorts in the entire Caribbean. Grace Bay Beach is consistently ranked one of the world's best beaches. Four distinct "villages," 45+ restaurants, a full waterpark, and Sesame Street characters all day long.</p>
+          <ul style="list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:7px;">
+            <li style="font-size:0.82rem;color:var(--text-mid);display:flex;gap:8px;"><span style="color:var(--ocean);">✦</span> World-famous Grace Bay Beach</li>
+            <li style="font-size:0.82rem;color:var(--text-mid);display:flex;gap:8px;"><span style="color:var(--ocean);">✦</span> Full on-site waterpark (WaterPark Village)</li>
+            <li style="font-size:0.82rem;color:var(--text-mid);display:flex;gap:8px;"><span style="color:var(--ocean);">✦</span> 45+ restaurants & bars</li>
+            <li style="font-size:0.82rem;color:var(--text-mid);display:flex;gap:8px;"><span style="color:var(--ocean);">✦</span> Four themed resort villages</li>
+          </ul>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:22px;overflow:hidden;border:1.5px solid rgba(0,71,171,0.1);">
+        <div class="img-ph" style="height:220px;background:linear-gradient(160deg,#0a3a1a,#1a7a3a,#2aaa5a);border-radius:0;">
+          <div class="icon">🌿</div>
+          <div>Negril Jamaica Photo</div>
+          <div class="lbl">Add a photo of Beaches Negril</div>
+        </div>
+        <div style="padding:28px;">
+          <div style="font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;color:var(--palm);margin-bottom:8px;">🇯🇲 Jamaica</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--navy);margin-bottom:10px;">Beaches Negril</h3>
+          <p style="font-size:0.87rem;color:var(--text-mid);line-height:1.65;">Set on the legendary Seven Mile Beach in Negril, Jamaica — this resort brings the warm, laid-back Jamaican spirit together with Beaches' signature all-inclusive family luxury. A more intimate feel with the same incredible kids programming.</p>
+          <ul style="list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:7px;">
+            <li style="font-size:0.82rem;color:var(--text-mid);display:flex;gap:8px;"><span style="color:var(--palm);">✦</span> On legendary Seven Mile Beach</li>
+            <li style="font-size:0.82rem;color:var(--text-mid);display:flex;gap:8px;"><span style="color:var(--palm);">✦</span> Warm Jamaican culture & entertainment</li>
+            <li style="font-size:0.82rem;color:var(--text-mid);display:flex;gap:8px;"><span style="color:var(--palm);">✦</span> Full Sesame Street program</li>
+            <li style="font-size:0.82rem;color:var(--text-mid);display:flex;gap:8px;"><span style="color:var(--palm);">✦</span> More intimate & relaxed feel</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SANDALS SECTION -->
+<section id="sandals" class="sand-section">
+  <div class="inner">
+    <div class="sandals-header reveal">
+      <span class="sandals-badge">🥂 Adults Only</span>
+      <h3>Sandals Resorts — Romance Elevated</h3>
+      <p>Sandals is the gold standard in luxury adults-only all-inclusive resorts — and the perfect option for couples seeking a romantic escape, honeymoon, anniversary trip, or simply a kid-free vacation done right. We book Sandals across the Caribbean and beyond.</p>
+    </div>
+
+    <div class="two-col reveal">
+      <div class="reveal">
+        <div class="img-ph" style="height:360px;background:linear-gradient(150deg,#8a0a0a,#c0392b,#e05a3a);">
+          <div class="icon">🥂</div>
+          <div>Sandals Resort Couple Photo</div>
+          <div class="lbl">Add a romantic resort or overwater bungalow photo</div>
+        </div>
+      </div>
+      <div>
+        <span class="section-eyebrow">Sandals Resorts</span>
+        <h2 class="section-title">Luxury. <em>Romance. Paradise.</em></h2>
+        <p class="section-sub">Sandals operates across Jamaica, St. Lucia, Barbados, Antigua, The Bahamas, Grenada, Curaçao, and more. Every location is spectacular — and we know exactly which one fits your style.</p>
+        <ul class="perks-list">
+          <li><span class="perk-check">✓</span> Overwater bungalows available at select locations</li>
+          <li><span class="perk-check">✓</span> Unlimited premium liquors, fine wines & dining</li>
+          <li><span class="perk-check">✓</span> PADI-certified scuba diving included</li>
+          <li><span class="perk-check">✓</span> Red Lane Spa (treatments additional)</li>
+          <li><span class="perk-check">✓</span> Butler service in top suite categories</li>
+          <li><span class="perk-check">✓</span> Airport transfers included</li>
+          <li><span class="perk-check">✓</span> Exchange privileges — visit neighboring Sandals resorts</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sandals destinations -->
+    <div style="margin-top:60px;">
+      <div style="text-align:center;margin-bottom:30px;">
+        <span class="section-eyebrow">Sandals Destinations</span>
+        <h2 class="section-title">Find Your <em>Perfect Island</em></h2>
+      </div>
+      <div class="resort-dest-grid reveal">
+        <div class="resort-dest-card">
+          <div class="rd-img rd-jamaica">
+            <div class="rd-icon">🌿</div>
+            <div class="rd-label"><h4>Jamaica</h4><p>Multiple Sandals locations</p></div>
+          </div>
+          <div class="rd-body">
+            <span class="rd-brand brand-sandals">Sandals Only</span>
+            <p>Montego Bay, Ocho Rios & Negril locations. Jamaica's warm, vibrant culture and gorgeous coastline make it one of Sandals' most popular destinations.</p>
+          </div>
+        </div>
+        <div class="resort-dest-card">
+          <div class="rd-img rd-st-lucia">
+            <div class="rd-icon">🌋</div>
+            <div class="rd-label"><h4>St. Lucia</h4><p>Arguably the most romantic</p></div>
+          </div>
+          <div class="rd-body">
+            <span class="rd-brand brand-sandals">Sandals Only</span>
+            <p>The Piton mountains as your backdrop, overwater bungalows, and lush volcanic beauty. St. Lucia is widely considered the crown jewel of Sandals locations.</p>
+          </div>
+        </div>
+        <div class="resort-dest-card">
+          <div class="rd-img rd-bahamas">
+            <div class="rd-icon">🐠</div>
+            <div class="rd-label"><h4>The Bahamas</h4><p>Royal Bahamian & Emerald Bay</p></div>
+          </div>
+          <div class="rd-body">
+            <span class="rd-brand brand-sandals">Sandals Only</span>
+            <p>Crystal-clear water, stunning reefs, and that iconic Bahamian turquoise. Perfect for couples who love snorkeling and water sports.</p>
+          </div>
+        </div>
+        <div class="resort-dest-card">
+          <div class="rd-img rd-antigua">
+            <div class="rd-icon">⛵</div>
+            <div class="rd-label"><h4>Antigua</h4><p>365 beaches — one for every day</p></div>
+          </div>
+          <div class="rd-body">
+            <span class="rd-brand brand-sandals">Sandals Only</span>
+            <p>Known for its 365 beaches, sailing culture, and English Harbour. Sandals Grande Antigua is a spectacular resort on Dickenson Bay.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="dark-section">
+  <div class="inner">
+    <div style="text-align:center;margin-bottom:40px;">
+      <span class="section-eyebrow" style="color:var(--gold);">No Surprises</span>
+      <h2 class="section-title" style="color:#fff;">Everything Is <em style="color:var(--magic-teal);">Included</em></h2>
+      <p style="color:rgba(255,255,255,0.7);font-size:1rem;line-height:1.7;max-width:560px;margin:0 auto;">At Beaches and Sandals, "all-inclusive" actually means all-inclusive. Here's what comes with your stay:</p>
+    </div>
+    <div class="included-grid reveal">
+      <div class="included-card"><div class="included-icon">🍽️</div><h4>All Dining</h4><p>Unlimited meals at every specialty restaurant — no reservations required at most.</p></div>
+      <div class="included-card"><div class="included-icon">🍹</div><h4>Premium Drinks</h4><p>Top-shelf spirits, fine wines, craft beers & unlimited non-alcoholic options all day long.</p></div>
+      <div class="included-card"><div class="included-icon">🏄</div><h4>Watersports</h4><p>Snorkeling, kayaking, paddleboarding, glass-bottom boats & more. Scuba at Sandals too.</p></div>
+      <div class="included-card"><div class="included-icon">🎭</div><h4>Entertainment</h4><p>Nightly shows, themed parties, live music & daytime activities — always something happening.</p></div>
+      <div class="included-card"><div class="included-icon">✈️</div><h4>Airport Transfers</h4><p>Round-trip ground transfers from the airport to the resort — no figuring out taxis.</p></div>
+      <div class="included-card"><div class="included-icon">🌴</div><h4>Land Activities</h4><p>Tennis, pickleball, beach volleyball, fitness classes & more — all included.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="ai-form">
+  <div class="form-wrap">
+    <div style="text-align:center;margin-bottom:36px;">
+      <span class="section-eyebrow" style="color:var(--gold);">Your Paradise Awaits</span>
+      <h2 class="section-title" style="color:#fff;">Plan My <em style="color:var(--magic-teal);">All-Inclusive Getaway</em></h2>
+      <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;line-height:1.7;margin-bottom:0;">Tell me a little about your trip and I'll match you to the perfect resort — whether that's a family-filled Beaches vacation or a romantic Sandals escape.</p>
+    </div>
+    <form onsubmit="handleSubmit(event)">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="First & Last Name" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="(000) 000-0000">
+        </div>
+        <div class="form-group">
+          <label>Type of Trip</label>
+          <select>
+            <option>Family vacation (Beaches)</option>
+            <option>Couples / Romantic (Sandals)</option>
+            <option>Honeymoon (Sandals)</option>
+            <option>Anniversary trip</option>
+            <option>Girls trip / Group travel</option>
+            <option>Not sure — help me decide!</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Number of Travelers</label>
+          <select><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option></select>
+        </div>
+        <div class="form-group">
+          <label>Children's Ages (if applicable)</label>
+          <input type="text" placeholder="e.g. 5, 8, 11 (or N/A)">
+        </div>
+        <div class="form-group full">
+          <label>Resort Brand Preference</label>
+          <select>
+            <option>Beaches (family all-inclusive)</option>
+            <option>Sandals (adults-only luxury)</option>
+            <option>Open to both — help me choose!</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>Preferred Destination</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label"><input type="checkbox"> 🇯🇲 Jamaica</label>
+            <label class="checkbox-label"><input type="checkbox"> 🏝️ Turks & Caicos</label>
+            <label class="checkbox-label"><input type="checkbox"> 🌋 St. Lucia</label>
+            <label class="checkbox-label"><input type="checkbox"> 🐠 Bahamas</label>
+            <label class="checkbox-label"><input type="checkbox"> ⛵ Antigua</label>
+            <label class="checkbox-label"><input type="checkbox"> Open to suggestions!</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Approximate Travel Dates</label>
+          <input type="text" placeholder="e.g. February 2026 or flexible">
+        </div>
+        <div class="form-group">
+          <label>Trip Length</label>
+          <select>
+            <option>4–5 nights</option>
+            <option>6–7 nights</option>
+            <option>8–10 nights</option>
+            <option>10+ nights</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>What's Most Important to You?</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label"><input type="checkbox"> 🏖️ Beach Quality</label>
+            <label class="checkbox-label"><input type="checkbox"> 🍽️ Dining & Restaurants</label>
+            <label class="checkbox-label"><input type="checkbox"> 🌊 Waterpark / Water Sports</label>
+            <label class="checkbox-label"><input type="checkbox"> 👶 Kids Club Programs</label>
+            <label class="checkbox-label"><input type="checkbox"> 🥂 Butler Service</label>
+            <label class="checkbox-label"><input type="checkbox"> 🐠 Snorkeling / Scuba</label>
+            <label class="checkbox-label"><input type="checkbox"> 💆 Spa & Wellness</label>
+            <label class="checkbox-label"><input type="checkbox"> 🎭 Nightly Entertainment</label>
+          </div>
+        </div>
+        <div class="form-group full">
+          <label>Estimated Budget (full trip, not per person)</label>
+          <select>
+            <option>Under $3,000</option>
+            <option>$3,000 – $5,000</option>
+            <option>$5,000 – $8,000</option>
+            <option>$8,000 – $12,000</option>
+            <option>$12,000+</option>
+            <option>Flexible / not sure</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>Special Occasion?</label>
+          <input type="text" placeholder="e.g. Honeymoon, Anniversary, Birthday, First family trip...">
+        </div>
+        <div class="form-group full">
+          <label>Anything Else I Should Know?</label>
+          <textarea placeholder="Dietary needs, accessibility requirements, suite preferences, past resort experiences you loved or didn't love..."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="form-submit">🌴 Send My Resort Request</button>
+      <p class="form-note">I typically respond within 24 hours. Planning is always free!</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="font-size:1.2rem;">Gather <span style="color:#fff;">&</span> Go Travel Co.</a>
+      <p>All-inclusive specialists & family vacation planners. Proudly part of Boardwalk Travel Agency.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="disney.html">Disney Vacations</a></li>
+        <li><a href="cruises.html">Cruises</a></li>
+        <li><a href="universal.html">Universal Orlando</a></li>
+        <li><a href="allInclusive.html">All-Inclusive Resorts</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:gatherandgotc@gmail.com">gatherandgotc@gmail.com</a></li>
+        <li><a href="#ai-form">Free Consultation</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Gather & Go Travel Co. All rights reserved.</p>
+    <p>Member of Boardwalk Travel Agency</p>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.addEventListener('mousemove', (e) => {
+  if (Math.random() > 0.75) {
+    const s = document.createElement('div'); s.className = 'sparkle';
+    s.style.left = e.clientX + 'px'; s.style.top = e.clientY + 'px';
+    const c = ['#f5a623','#00b4d8','#FFD700','#fff','#2aaa5a'];
+    s.style.background = c[Math.floor(Math.random()*c.length)];
+    document.body.appendChild(s); setTimeout(() => s.remove(), 600);
+  }
+});
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = '✅ Request Sent! We\'ll be in touch soon.';
+  btn.style.background = '#22c55e'; btn.disabled = true;
+}
+</script>
+</body>
+</html>
