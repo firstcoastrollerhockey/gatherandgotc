@@ -18,8 +18,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.9
 .nav-cta{background:var(--gold)!important;color:var(--navy)!important;padding:8px 18px;border-radius:50px;font-weight:800!important;}
 
 .hero{min-height:60vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-align:center;padding:140px 40px 80px;background:var(--navy);}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 80% 50%,rgba(255,107,0,0.2) 0%,transparent 60%),radial-gradient(ellipse 60% 60% at 20% 30%,rgba(0,71,171,0.3) 0%,transparent 55%);}
-.hero-content{position:relative;z-index:2;max-width:750px;}
+.hero-bg{display:none;}
+.hero-content{position:relative;z-index:2;max-width:750px;text-shadow:0 2px 12px rgba(0,0,0,0.7);}
+.eyebrow{text-shadow:none;}
 .eyebrow{display:inline-block;background:rgba(255,107,0,0.15);border:1px solid rgba(255,107,0,0.5);color:var(--univ-orange);font-size:0.78rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:6px 18px;border-radius:50px;margin-bottom:20px;}
 .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:20px;}
 .hero h1 em{font-style:italic;color:var(--univ-orange);}
@@ -151,6 +152,9 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
+  <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0.6;">
+    <source src="https://res.cloudinary.com/dmcyz4y3j/video/upload/q_auto/f_auto/v1777494869/universal_t4jpw1.mp4" type="video/mp4">
+  </video>
   <div class="hero-content">
     <div class="eyebrow">🎢 Universal Orlando Specialists</div>
     <h1>Epic Adventures Are<br><em>Waiting for Your Family</em></h1>
