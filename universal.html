@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Universal Orlando | Gather & Go Travel Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--gold:#f5a623;--gold-light:#ffd980;--magic-blue:#1a6bb5;--magic-teal:#00b4d8;--univ-blue:#0047ab;--univ-orange:#ff6b00;--cream:#fffdf6;--warm-white:#fff9ee;--text-dark:#1a1a2e;--text-mid:#4a4a6a;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.97);backdrop-filter:blur(10px);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(245,166,35,0.3);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold);text-decoration:none;letter-spacing:0.5px;}
+.nav-logo span{color:#fff;}
+.nav-links{display:flex;gap:22px;list-style:none;align-items:center;}
+.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.82rem;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-cta{background:var(--gold)!important;color:var(--navy)!important;padding:8px 18px;border-radius:50px;font-weight:800!important;}
+
+.hero{min-height:60vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-align:center;padding:140px 40px 80px;background:var(--navy);}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 80% 50%,rgba(255,107,0,0.2) 0%,transparent 60%),radial-gradient(ellipse 60% 60% at 20% 30%,rgba(0,71,171,0.3) 0%,transparent 55%);}
+.hero-content{position:relative;z-index:2;max-width:750px;}
+.eyebrow{display:inline-block;background:rgba(255,107,0,0.15);border:1px solid rgba(255,107,0,0.5);color:var(--univ-orange);font-size:0.78rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:6px 18px;border-radius:50px;margin-bottom:20px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:20px;}
+.hero h1 em{font-style:italic;color:var(--univ-orange);}
+.hero p{font-size:1.05rem;color:rgba(255,255,255,0.8);line-height:1.7;max-width:580px;margin:0 auto 32px;}
+.btn-orange{background:var(--univ-orange);color:#fff;font-weight:800;font-size:1rem;padding:14px 34px;border-radius:50px;text-decoration:none;display:inline-block;transition:transform 0.2s,opacity 0.2s;}
+.btn-orange:hover{opacity:0.9;transform:translateY(-2px);}
+.btn-outline{background:transparent;color:#fff;font-weight:700;font-size:1rem;padding:13px 34px;border-radius:50px;border:1.5px solid rgba(255,255,255,0.4);text-decoration:none;display:inline-block;transition:border-color 0.2s,transform 0.2s;margin-left:12px;}
+.btn-outline:hover{border-color:#fff;transform:translateY(-2px);}
+
+section{padding:80px 40px;}
+.inner{max-width:1100px;margin:0 auto;}
+.section-eyebrow{font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--univ-orange);margin-bottom:12px;display:block;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;color:var(--navy);line-height:1.15;margin-bottom:16px;}
+.section-title em{font-style:italic;color:var(--univ-blue);}
+.section-sub{font-size:1rem;color:var(--text-mid);line-height:1.7;max-width:620px;}
+
+.img-ph{width:100%;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,0.75);font-size:0.85rem;font-weight:700;text-align:center;gap:8px;border:2px dashed rgba(255,255,255,0.3);position:relative;}
+.img-ph .icon{font-size:2.5rem;opacity:0.8;}
+.img-ph .lbl{font-size:0.78rem;opacity:0.6;margin-top:4px;}
+
+.dark-section{background:var(--navy);padding:80px 40px;}
+.blue-section{background:#f0f4ff;padding:80px 40px;}
+.orange-section{background:#fff8f3;padding:80px 40px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
+.perks-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:20px;}
+.perks-list li{display:flex;align-items:flex-start;gap:12px;font-size:0.95rem;color:var(--text-dark);font-weight:600;}
+.perk-check{width:22px;height:22px;background:var(--univ-orange);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-size:0.65rem;color:#fff;font-weight:900;}
+
+/* PARK CARDS */
+.park-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:36px;}
+.park-card{border-radius:20px;overflow:hidden;transition:transform 0.25s,box-shadow 0.25s;}
+.park-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.12);}
+.park-header{padding:32px 28px 24px;position:relative;}
+.park-islands{background:linear-gradient(135deg,#0a2a5a,#1a5aaa,#2a8ad5);}
+.park-studios{background:linear-gradient(135deg,#1a0a3a,#4a1a7a,#8a2aaa);}
+.park-epic{background:linear-gradient(135deg,#0a2a1a,#1a6a3a,#2aaa5a);}
+.park-icon{font-size:2.5rem;margin-bottom:12px;}
+.park-header h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin-bottom:6px;}
+.park-header p{font-size:0.85rem;color:rgba(255,255,255,0.65);}
+.park-badge{position:absolute;top:16px;right:16px;font-size:0.7rem;font-weight:800;padding:4px 12px;border-radius:50px;text-transform:uppercase;letter-spacing:0.5px;}
+.badge-new{background:#22c55e;color:#fff;}
+.badge-fav{background:var(--gold);color:var(--navy);}
+.park-body{background:#fff;padding:24px 28px;border:1.5px solid rgba(0,71,171,0.1);border-top:none;border-radius:0 0 20px 20px;}
+.attraction-list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:16px;}
+.attraction-list li{font-size:0.85rem;color:var(--text-mid);display:flex;align-items:center;gap:9px;}
+.attraction-list li::before{content:'🎢';font-size:0.75rem;}
+.park-img-ph{height:180px;margin-bottom:0;}
+
+/* EPIC UNIVERSE */
+.eu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:32px;}
+.eu-world{border-radius:16px;padding:24px;transition:transform 0.2s;}
+.eu-world:hover{transform:translateY(-4px);}
+.eu-hp{background:linear-gradient(135deg,#1a0a3a,#3a1a6a);}
+.eu-sw{background:linear-gradient(135deg,#0a1a0a,#1a3a1a);}
+.eu-univ{background:linear-gradient(135deg,#1a3a6a,#2a5a9a);}
+.eu-dt{background:linear-gradient(135deg,#3a1a0a,#6a2a0a);}
+.eu-mn{background:linear-gradient(135deg,#0a2a3a,#0a4a6a);}
+.eu-world-icon{font-size:2rem;margin-bottom:10px;}
+.eu-world h4{color:var(--gold);font-size:0.85rem;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;}
+.eu-world p{font-size:0.82rem;color:rgba(255,255,255,0.75);line-height:1.6;}
+
+/* RESORTS */
+.resort-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:36px;}
+.resort-card{background:#fff;border-radius:18px;overflow:hidden;border:1.5px solid rgba(0,71,171,0.1);transition:transform 0.25s,box-shadow 0.25s;}
+.resort-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.08);}
+.resort-img{height:160px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:rgba(255,255,255,0.75);font-size:0.8rem;font-weight:700;border:2px dashed rgba(255,255,255,0.25);}
+.resort-premier{background:linear-gradient(135deg,#1a0a4a,#4a1a8a);}
+.resort-preferred{background:linear-gradient(135deg,#0a2a4a,#1a5a8a);}
+.resort-value{background:linear-gradient(135deg,#0a3a1a,#1a7a3a);}
+.resort-body{padding:20px;}
+.resort-tier{font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;display:block;}
+.tier-premier{color:#7c3aed;}
+.tier-preferred{color:var(--univ-blue);}
+.tier-value{color:#166534;}
+.resort-body h3{font-size:1rem;font-weight:800;color:var(--navy);margin-bottom:6px;}
+.resort-body p{font-size:0.83rem;color:var(--text-mid);line-height:1.6;}
+.resort-perk{margin-top:10px;font-size:0.78rem;color:var(--univ-orange);font-weight:700;}
+
+/* FORM */
+.form-section{background:var(--navy);padding:80px 40px;}
+.form-wrap{max-width:720px;margin:0 auto;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{display:flex;flex-direction:column;gap:7px;}
+.form-group.full{grid-column:1/-1;}
+.form-group label{font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.8px;color:rgba(255,255,255,0.65);}
+.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);border-radius:10px;padding:12px 16px;color:#fff;font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:600;outline:none;width:100%;transition:border-color 0.2s;}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.3);}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
+.form-group select option{background:var(--navy);color:#fff;}
+.form-group textarea{resize:vertical;min-height:110px;}
+.checkbox-group{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;}
+.checkbox-label{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,0.8);font-size:0.85rem;font-weight:600;cursor:pointer;}
+.checkbox-label input[type=checkbox]{width:16px;height:16px;accent-color:var(--gold);}
+.form-submit{width:100%;margin-top:24px;background:var(--univ-orange);color:#fff;border:none;border-radius:50px;padding:16px;font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;transition:opacity 0.2s,transform 0.2s;}
+.form-submit:hover{opacity:0.9;transform:translateY(-2px);}
+.form-note{text-align:center;margin-top:14px;font-size:0.8rem;color:rgba(255,255,255,0.4);}
+
+footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(255,255,255,0.1);}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:50px;margin-bottom:32px;}
+.footer-brand p{font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.7;margin-top:12px;max-width:300px;}
+.footer-col h4{font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:16px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:9px;}
+.footer-col a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.85rem;transition:color 0.2s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto;}
+.footer-bottom p{font-size:0.75rem;color:rgba(255,255,255,0.3);}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.sparkle{position:fixed;pointer-events:none;z-index:9999;width:7px;height:7px;border-radius:50%;background:var(--gold);animation:sparkle-fade 0.6s ease forwards;}
+@keyframes sparkle-fade{0%{opacity:1;transform:scale(1) translateY(0);}100%{opacity:0;transform:scale(0.2) translateY(-20px);}}
+@media(max-width:768px){nav{padding:14px 20px;}.nav-links{display:none;}section{padding:60px 24px;}.two-col{grid-template-columns:1fr;gap:36px;}.form-grid{grid-template-columns:1fr;}.footer-inner{grid-template-columns:1fr;gap:28px;}.footer-bottom{flex-direction:column;gap:8px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Gather <span>&</span> Go Travel Co.</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="disney.html">Disney</a></li>
+    <li><a href="cruises.html">Cruises</a></li>
+    <li><a href="universal.html" class="active">Universal</a></li>
+    <li><a href="allInclusive.html">All-Inclusive</a></li>
+    <li><a href="#universal-form" class="nav-cta">Plan My Trip ✦</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="eyebrow">🎢 Universal Orlando Specialists</div>
+    <h1>Epic Adventures Are<br><em>Waiting for Your Family</em></h1>
+    <p>From the Wizarding World of Harry Potter to the brand-new Epic Universe — Universal Orlando is a thrill-packed destination that kids and adults both absolutely love. Let us plan every detail.</p>
+    <a href="#universal-form" class="btn-orange">🎢 Plan My Universal Trip</a>
+    <a href="#parks" class="btn-outline">Explore the Parks</a>
+  </div>
+</section>
+
+<!-- WHY UNIVERSAL -->
+<section style="background:var(--warm-white);">
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <span class="section-eyebrow">Why Universal Orlando</span>
+        <h2 class="section-title">More Than <em>Rides</em> —<br>It's Worlds</h2>
+        <p class="section-sub">Universal Orlando has transformed into a multi-day destination that rivals Disney. With immersive lands, on-site resorts, and a brand new park opening, there's never been a better time to visit.</p>
+        <ul class="perks-list reveal">
+          <li><span class="perk-check">✓</span> Three theme parks + CityWalk entertainment district</li>
+          <li><span class="perk-check">✓</span> The Wizarding World of Harry Potter — two full areas</li>
+          <li><span class="perk-check">✓</span> Epic Universe — brand new park opening 2025</li>
+          <li><span class="perk-check">✓</span> On-site resort guests get Early Park Admission</li>
+          <li><span class="perk-check">✓</span> Unlimited Express Pass with Premier resort stays</li>
+          <li><span class="perk-check">✓</span> Easily combinable with a Disney trip</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="img-ph" style="height:360px;background:linear-gradient(150deg,#1a0a3a,#4a1a7a,#8a2aaa);">
+          <div class="icon">🧙</div>
+          <div>Wizarding World of Harry Potter Photo</div>
+          <div class="lbl">Add your favorite Universal park photo here</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PARKS -->
+<section id="parks" style="background:var(--cream);">
+  <div class="inner">
+    <div style="text-align:center;margin-bottom:10px;">
+      <span class="section-eyebrow">The Parks</span>
+      <h2 class="section-title">Three Parks. <em>Endless Adventure.</em></h2>
+      <p class="section-sub" style="margin:0 auto;">Each park has its own identity — and together they make for an unforgettable multi-day experience your family will be talking about for years.</p>
+    </div>
+    <div class="park-grid reveal">
+
+      <div class="park-card">
+        <div class="park-header park-islands">
+          <div class="park-badge badge-fav">Fan Favorite</div>
+          <div class="park-icon">🏝️</div>
+          <h3>Islands of Adventure</h3>
+          <p>Home to Hogsmeade & the most thrilling rides</p>
+        </div>
+        <div class="park-img-ph img-ph park-islands" style="height:160px;border-radius:0;border:none;">
+          <div class="icon" style="font-size:2rem;">🎡</div>
+          <div style="font-size:0.78rem;opacity:0.6;">Add a park photo</div>
+        </div>
+        <div class="park-body">
+          <ul class="attraction-list">
+            <li>Hagrid's Magical Creatures Motorbike Adventure</li>
+            <li>The Incredible Hulk Coaster</li>
+            <li>Jurassic World VelociCoaster</li>
+            <li>The Amazing Adventures of Spider-Man</li>
+            <li>Hogsmeade Village & Butterbeer</li>
+            <li>Dr. Seuss Landing (great for little ones)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="park-card">
+        <div class="park-header park-studios">
+          <div class="park-icon">🎬</div>
+          <h3>Universal Studios Florida</h3>
+          <p>Hollywood magic meets Diagon Alley</p>
+        </div>
+        <div class="park-img-ph img-ph park-studios" style="height:160px;border-radius:0;border:none;">
+          <div class="icon" style="font-size:2rem;">🎥</div>
+          <div style="font-size:0.78rem;opacity:0.6;">Add a park photo</div>
+        </div>
+        <div class="park-body">
+          <ul class="attraction-list">
+            <li>Diagon Alley & Gringotts Dragon</li>
+            <li>Hollywood Rip Ride Rockit</li>
+            <li>Despicable Me Minion Mayhem</li>
+            <li>Race Through New York with Jimmy Fallon</li>
+            <li>Fast & Furious Supercharged</li>
+            <li>Hogwarts Express (connects to Islands)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="park-card">
+        <div class="park-header park-epic">
+          <div class="park-badge badge-new">New 2025!</div>
+          <div class="park-icon">🌍</div>
+          <h3>Epic Universe</h3>
+          <p>Universal's most ambitious park ever</p>
+        </div>
+        <div class="park-img-ph img-ph park-epic" style="height:160px;border-radius:0;border:none;">
+          <div class="icon" style="font-size:2rem;">✨</div>
+          <div style="font-size:0.78rem;opacity:0.6;">Add an Epic Universe photo</div>
+        </div>
+        <div class="park-body">
+          <ul class="attraction-list">
+            <li>The Wizarding World: Ministry of Magic</li>
+            <li>How to Train Your Dragon — Isle of Berk</li>
+            <li>Super Nintendo World</li>
+            <li>Monsters Unchained — Universal Monsters</li>
+            <li>Celestial Park — the beautiful hub world</li>
+            <li>Its own on-site hotels & dining</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EPIC UNIVERSE SPOTLIGHT -->
+<section class="dark-section" id="epic-universe">
+  <div class="inner">
+    <div style="text-align:center;margin-bottom:40px;">
+      <span class="section-eyebrow" style="color:var(--univ-orange);">Opening 2025</span>
+      <h2 class="section-title" style="color:#fff;">Epic Universe — <em style="color:#22c55e;">The New Frontier</em></h2>
+      <p style="color:rgba(255,255,255,0.7);font-size:1rem;line-height:1.7;max-width:640px;margin:0 auto;">Universal's newest and most ambitious theme park is opening in 2025, and it's already the most talked-about theme park addition in decades. Five immersive worlds, each more spectacular than the last.</p>
+    </div>
+    <div class="eu-grid reveal">
+      <div class="eu-world eu-hp">
+        <div class="eu-world-icon">⚡</div>
+        <h4>Ministry of Magic</h4>
+        <p>Step into wizarding Paris & the British Ministry — a whole new era of Harry Potter magic.</p>
+      </div>
+      <div class="eu-world eu-sw">
+        <div class="eu-world-icon">🐉</div>
+        <h4>Isle of Berk</h4>
+        <p>Train your dragon, soar over Berk, and meet Hiccup & Toothless in this How to Train Your Dragon world.</p>
+      </div>
+      <div class="eu-world eu-univ">
+        <div class="eu-world-icon">🎮</div>
+        <h4>Super Nintendo World</h4>
+        <p>Jump into the Mushroom Kingdom! Mario Kart, Donkey Kong, and interactive wristband gameplay.</p>
+      </div>
+      <div class="eu-world eu-dt">
+        <div class="eu-world-icon">👹</div>
+        <h4>Universal Monsters</h4>
+        <p>Dracula, Frankenstein, the Wolfman — a gothic, thrilling land for older kids and adults.</p>
+      </div>
+      <div class="eu-world eu-mn">
+        <div class="eu-world-icon">🌟</div>
+        <h4>Celestial Park</h4>
+        <p>The stunning central hub of Epic Universe — inspired by the cosmos, filled with dining & entertainment.</p>
+      </div>
+    </div>
+    <div style="margin-top:40px;text-align:center;">
+      <div class="img-ph" style="height:260px;background:linear-gradient(150deg,#0a2a1a,#1a5a3a,#2a9a5a);max-width:800px;margin:0 auto;" class="reveal">
+        <div class="icon">🌍</div>
+        <div>Epic Universe Park Photo</div>
+        <div class="lbl">Add a render or photo of Epic Universe when available</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESORTS -->
+<section class="orange-section" id="resorts">
+  <div class="inner">
+    <div style="text-align:center;margin-bottom:10px;">
+      <span class="section-eyebrow">Where to Stay</span>
+      <h2 class="section-title">Universal's <em>On-Site Resorts</em></h2>
+      <p class="section-sub" style="margin:0 auto;">Staying on-site at Universal unlocks huge perks — especially Early Park Admission to get a head start on the crowds. We'll match your family to the right resort tier.</p>
+    </div>
+    <div class="resort-grid reveal">
+      <div class="resort-card">
+        <div class="resort-img resort-premier img-ph" style="border-radius:18px 18px 0 0;">
+          <div class="icon" style="font-size:2rem;">👑</div>
+          <div style="font-size:0.78rem;">Premier Resort Photo</div>
+        </div>
+        <div class="resort-body">
+          <span class="resort-tier tier-premier">Premier</span>
+          <h3>Loews Portofino Bay Hotel</h3>
+          <p>Italian Riviera theming, three pools, bocce courts, and the premier Universal experience. Steps from CityWalk.</p>
+          <div class="resort-perk">⚡ Unlimited Express Pass included</div>
+        </div>
+      </div>
+      <div class="resort-card">
+        <div class="resort-img resort-premier img-ph" style="border-radius:18px 18px 0 0;background:linear-gradient(135deg,#1a1a4a,#3a3a7a);">
+          <div class="icon" style="font-size:2rem;">🎭</div>
+          <div style="font-size:0.78rem;">Hard Rock Hotel Photo</div>
+        </div>
+        <div class="resort-body">
+          <span class="resort-tier tier-premier">Premier</span>
+          <h3>Hard Rock Hotel</h3>
+          <p>Rock 'n' roll themed luxury. Iconic pool with underwater speakers, and walking distance to both parks.</p>
+          <div class="resort-perk">⚡ Unlimited Express Pass included</div>
+        </div>
+      </div>
+      <div class="resort-card">
+        <div class="resort-img resort-preferred img-ph" style="border-radius:18px 18px 0 0;">
+          <div class="icon" style="font-size:2rem;">🌊</div>
+          <div style="font-size:0.78rem;">Sapphire Falls Photo</div>
+        </div>
+        <div class="resort-body">
+          <span class="resort-tier tier-preferred">Preferred</span>
+          <h3>Loews Sapphire Falls Resort</h3>
+          <p>Caribbean-inspired resort with a gorgeous pool & falls. Great mid-tier option with all the key resort perks.</p>
+          <div class="resort-perk">🚤 Water taxi to the parks</div>
+        </div>
+      </div>
+      <div class="resort-card">
+        <div class="resort-img resort-value img-ph" style="border-radius:18px 18px 0 0;">
+          <div class="icon" style="font-size:2rem;">🎪</div>
+          <div style="font-size:0.78rem;">Value Resort Photo</div>
+        </div>
+        <div class="resort-body">
+          <span class="resort-tier tier-value">Value</span>
+          <h3>Universal's Endless Summer Resorts</h3>
+          <p>Surf & beach theming, the most affordable on-site option. Still get Early Park Admission and resort perks.</p>
+          <div class="resort-perk">🌅 Best value on-site option</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section style="background:var(--cream);">
+  <div class="inner">
+    <div style="text-align:center;margin-bottom:10px;">
+      <span class="section-eyebrow">Insider Tips</span>
+      <h2 class="section-title">Plan Smarter, <em>Wait Less</em></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:36px;" class="reveal">
+      <div style="background:#fff;border-radius:16px;padding:22px;border:1.5px solid rgba(255,107,0,0.12);">
+        <div style="font-size:1.8rem;margin-bottom:10px;">⚡</div>
+        <h3 style="font-size:0.95rem;font-weight:800;color:var(--navy);margin-bottom:8px;">Express Pass = Game Changer</h3>
+        <p style="font-size:0.83rem;color:var(--text-mid);line-height:1.6;">Premier resort guests get Unlimited Express Pass included — bypassing standby lines on most rides. This can save hours every day.</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:22px;border:1.5px solid rgba(255,107,0,0.12);">
+        <div style="font-size:1.8rem;margin-bottom:10px;">🦉</div>
+        <h3 style="font-size:0.95rem;font-weight:800;color:var(--navy);margin-bottom:8px;">Start at Islands of Adventure</h3>
+        <p style="font-size:0.83rem;color:var(--text-mid);line-height:1.6;">Hagrid's Motorbike Adventure is the #1 most popular ride. Head there first thing at rope drop before the lines explode.</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:22px;border:1.5px solid rgba(255,107,0,0.12);">
+        <div style="font-size:1.8rem;margin-bottom:10px;">🔗</div>
+        <h3 style="font-size:0.95rem;font-weight:800;color:var(--navy);margin-bottom:8px;">Pair with Disney</h3>
+        <p style="font-size:0.83rem;color:var(--text-mid);line-height:1.6;">Universal and Disney are only 15 minutes apart. Many families do 4–5 days Disney + 2–3 days Universal for the ultimate Orlando trip.</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:22px;border:1.5px solid rgba(255,107,0,0.12);">
+        <div style="font-size:1.8rem;margin-bottom:10px;">🍺</div>
+        <h3 style="font-size:0.95rem;font-weight:800;color:var(--navy);margin-bottom:8px;">Try the Butterbeer</h3>
+        <p style="font-size:0.83rem;color:var(--text-mid);line-height:1.6;">It's a rite of passage. Cold, frozen, or hot — every member of your family needs to try it in Hogsmeade or Diagon Alley.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="universal-form">
+  <div class="form-wrap">
+    <div style="text-align:center;margin-bottom:36px;">
+      <span class="section-eyebrow" style="color:var(--univ-orange);">Let's Get Moving</span>
+      <h2 class="section-title" style="color:#fff;">Plan My <em style="color:#22c55e;">Universal Adventure</em></h2>
+      <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;line-height:1.7;margin-bottom:0;">Tell me about your family and I'll put together the perfect Universal Orlando plan — parks, resort, Express Pass strategy and all.</p>
+    </div>
+    <form onsubmit="handleSubmit(event)">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="First & Last Name" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="(000) 000-0000">
+        </div>
+        <div class="form-group">
+          <label>Number of Travelers</label>
+          <select><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option></select>
+        </div>
+        <div class="form-group">
+          <label>Children's Ages</label>
+          <input type="text" placeholder="e.g. 8, 12 (or N/A)">
+        </div>
+        <div class="form-group">
+          <label>Approximate Travel Dates</label>
+          <input type="text" placeholder="e.g. Summer 2025 or flexible">
+        </div>
+        <div class="form-group full">
+          <label>Which Parks Are You Interested In?</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label"><input type="checkbox"> 🏝️ Islands of Adventure</label>
+            <label class="checkbox-label"><input type="checkbox"> 🎬 Universal Studios Florida</label>
+            <label class="checkbox-label"><input type="checkbox"> 🌍 Epic Universe (New!)</label>
+            <label class="checkbox-label"><input type="checkbox"> All three!</label>
+          </div>
+        </div>
+        <div class="form-group full">
+          <label>Most Excited About...</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label"><input type="checkbox"> ⚡ Harry Potter Worlds</label>
+            <label class="checkbox-label"><input type="checkbox"> 🎮 Super Nintendo World</label>
+            <label class="checkbox-label"><input type="checkbox"> 🐉 How to Train Your Dragon</label>
+            <label class="checkbox-label"><input type="checkbox"> 🎢 Thrill Rides</label>
+            <label class="checkbox-label"><input type="checkbox"> 🦕 Jurassic World</label>
+            <label class="checkbox-label"><input type="checkbox"> 🛸 Little kid areas</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Resort Preference</label>
+          <select>
+            <option>Premier (includes Express Pass)</option>
+            <option>Preferred (mid-range)</option>
+            <option>Value (most affordable)</option>
+            <option>Off-site hotel</option>
+            <option>Help me decide!</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Trip Length</label>
+          <select>
+            <option>1–2 days</option><option>3–4 days</option><option>5–6 days</option><option>7+ days (combo with Disney)</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>Are you also planning a Disney trip?</label>
+          <select>
+            <option>Yes — I'd love a combined itinerary!</option>
+            <option>Maybe — open to it</option>
+            <option>No — Universal only this time</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>Anything Else?</label>
+          <textarea placeholder="Harry Potter fans? Thrill seekers? First-timers? Dietary needs or accessibility requirements?"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="form-submit">🎢 Send My Universal Request</button>
+      <p class="form-note">I typically respond within 24 hours. Planning is always free!</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="font-size:1.2rem;">Gather <span style="color:#fff;">&</span> Go Travel Co.</a>
+      <p>Theme park vacation specialists & family travel planners. Proudly part of Boardwalk Travel Agency.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="disney.html">Disney Vacations</a></li>
+        <li><a href="cruises.html">Cruises</a></li>
+        <li><a href="universal.html">Universal Orlando</a></li>
+        <li><a href="allInclusive.html">All-Inclusive Resorts</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:gatherandgotc@gmail.com">gatherandgotc@gmail.com</a></li>
+        <li><a href="#universal-form">Free Consultation</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Gather & Go Travel Co. All rights reserved.</p>
+    <p>Member of Boardwalk Travel Agency</p>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.addEventListener('mousemove', (e) => {
+  if (Math.random() > 0.75) {
+    const s = document.createElement('div'); s.className = 'sparkle';
+    s.style.left = e.clientX + 'px'; s.style.top = e.clientY + 'px';
+    const c = ['#f5a623','#ff6b00','#00b4d8','#fff'];
+    s.style.background = c[Math.floor(Math.random()*c.length)];
+    document.body.appendChild(s); setTimeout(() => s.remove(), 600);
+  }
+});
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = '✅ Request Sent! We\'ll be in touch soon.';
+  btn.style.background = '#22c55e'; btn.disabled = true;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family Cruises | Gather & Go Travel Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--gold:#f5a623;--gold-light:#ffd980;--magic-blue:#1a6bb5;--magic-teal:#00b4d8;--cream:#fffdf6;--warm-white:#fff9ee;--text-dark:#1a1a2e;--text-mid:#4a4a6a;--star:#FFD700;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.97);backdrop-filter:blur(10px);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(245,166,35,0.3);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold);text-decoration:none;letter-spacing:0.5px;}
+.nav-logo span{color:#fff;}
+.nav-links{display:flex;gap:22px;list-style:none;align-items:center;}
+.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.82rem;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-cta{background:var(--gold)!important;color:var(--navy)!important;padding:8px 18px;border-radius:50px;font-weight:800!important;}
+
+.hero{min-height:60vh;background:var(--navy);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-align:center;padding:140px 40px 80px;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(0,180,216,0.3) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 20% 20%,rgba(26,107,181,0.25) 0%,transparent 55%);}
+.hero-content{position:relative;z-index:2;max-width:750px;}
+.eyebrow{display:inline-block;background:rgba(245,166,35,0.15);border:1px solid rgba(245,166,35,0.5);color:var(--gold);font-size:0.78rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:6px 18px;border-radius:50px;margin-bottom:20px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:20px;}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero p{font-size:1.05rem;color:rgba(255,255,255,0.8);line-height:1.7;max-width:580px;margin:0 auto 32px;}
+.btn-primary{background:var(--gold);color:var(--navy);font-weight:800;font-size:1rem;padding:14px 34px;border-radius:50px;text-decoration:none;display:inline-block;transition:transform 0.2s,background 0.2s;}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
+.btn-outline{background:transparent;color:#fff;font-weight:700;font-size:1rem;padding:13px 34px;border-radius:50px;border:1.5px solid rgba(255,255,255,0.4);text-decoration:none;display:inline-block;transition:border-color 0.2s,transform 0.2s;margin-left:12px;}
+.btn-outline:hover{border-color:#fff;transform:translateY(-2px);}
+
+section{padding:80px 40px;}
+.inner{max-width:1100px;margin:0 auto;}
+.section-eyebrow{font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--magic-blue);margin-bottom:12px;display:block;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;color:var(--navy);line-height:1.15;margin-bottom:16px;}
+.section-title em{font-style:italic;color:var(--magic-blue);}
+.section-sub{font-size:1rem;color:var(--text-mid);line-height:1.7;max-width:620px;}
+
+.img-ph{width:100%;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,255,255,0.75);font-size:0.85rem;font-weight:700;text-align:center;gap:8px;border:2px dashed rgba(255,255,255,0.3);position:relative;}
+.img-ph .icon{font-size:2.5rem;opacity:0.8;}
+.img-ph .lbl{font-size:0.78rem;opacity:0.6;margin-top:4px;}
+
+.dark-section{background:var(--navy);padding:80px 40px;}
+.blue-section{background:#f0f7ff;padding:80px 40px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
+.perks-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:20px;}
+.perks-list li{display:flex;align-items:flex-start;gap:12px;font-size:0.95rem;color:var(--text-dark);font-weight:600;}
+.perk-check{width:22px;height:22px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-size:0.65rem;color:var(--navy);font-weight:900;}
+
+/* CRUISE LINE CARDS */
+.cruise-lines{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;margin-top:40px;}
+.cl-card{border-radius:22px;overflow:hidden;border:1.5px solid rgba(26,107,181,0.12);transition:transform 0.25s,box-shadow 0.25s;}
+.cl-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.1);}
+.cl-header{padding:32px 28px 24px;position:relative;}
+.cl-disney{background:linear-gradient(135deg,#0a1e4a,#1a4a8a,#0090c0);}
+.cl-royal{background:linear-gradient(135deg,#1a0a4a,#3a1a8a,#6a40c0);}
+.cl-celebrity{background:linear-gradient(135deg,#1a3a1a,#2a6a3a,#3a9a5a);}
+.cl-carnival{background:linear-gradient(135deg,#4a1a0a,#8a2a1a,#c04a2a);}
+.cl-ncl{background:linear-gradient(135deg,#0a2a4a,#0a5a8a,#0a8ac0);}
+.cl-badge{position:absolute;top:16px;right:16px;font-size:0.7rem;font-weight:800;padding:4px 12px;border-radius:50px;text-transform:uppercase;letter-spacing:0.5px;}
+.badge-fav{background:var(--gold);color:var(--navy);}
+.badge-pop{background:var(--magic-teal);color:#fff;}
+.cl-icon{font-size:2.5rem;margin-bottom:12px;}
+.cl-header h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin-bottom:6px;}
+.cl-header p{font-size:0.85rem;color:rgba(255,255,255,0.65);}
+.cl-body{background:#fff;padding:24px 28px;}
+.cl-features{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:18px;}
+.cl-features li{font-size:0.85rem;color:var(--text-mid);display:flex;align-items:center;gap:9px;}
+.cl-features li::before{content:'✦';color:var(--magic-blue);font-size:0.65rem;flex-shrink:0;}
+.cl-tag{display:inline-block;background:#e8f4fd;color:var(--magic-blue);font-size:0.72rem;font-weight:800;padding:4px 12px;border-radius:50px;text-transform:uppercase;letter-spacing:0.5px;}
+
+/* COMPARE TABLE */
+.compare-wrap{overflow-x:auto;margin-top:36px;}
+.compare-table{width:100%;border-collapse:collapse;min-width:600px;}
+.compare-table th{background:var(--navy);color:var(--gold);font-size:0.82rem;font-weight:800;padding:14px 18px;text-align:left;}
+.compare-table th:first-child{border-radius:12px 0 0 0;}
+.compare-table th:last-child{border-radius:0 12px 0 0;}
+.compare-table td{padding:13px 18px;font-size:0.85rem;color:var(--text-dark);border-bottom:1px solid rgba(26,107,181,0.08);}
+.compare-table tr:nth-child(even) td{background:rgba(26,107,181,0.04);}
+.compare-table tr:hover td{background:rgba(26,107,181,0.08);}
+.yes{color:#22c55e;font-weight:800;}
+.no{color:#ef4444;font-weight:800;}
+.partial{color:#f59e0b;font-weight:800;}
+
+/* DESTINATIONS */
+.dest-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:36px;}
+.dest-card{border-radius:16px;overflow:hidden;height:200px;display:flex;align-items:flex-end;padding:20px;position:relative;cursor:pointer;transition:transform 0.25s;}
+.dest-card:hover{transform:scale(1.03);}
+.dest-caribbean{background:linear-gradient(160deg,#0a3a6a,#0a7ab5,#00b4d8);}
+.dest-bahamas{background:linear-gradient(160deg,#0a3a2a,#0a7a5a,#00b48a);}
+.dest-alaska{background:linear-gradient(160deg,#1a2a4a,#2a4a7a,#4a7ab5);}
+.dest-europe{background:linear-gradient(160deg,#4a2a0a,#8a4a1a,#c07a3a);}
+.dest-hawaii{background:linear-gradient(160deg,#3a0a2a,#7a1a5a,#c04a8a);}
+.dest-mexico{background:linear-gradient(160deg,#2a3a0a,#5a7a1a,#8ab52a);}
+.dest-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-65%);font-size:3rem;opacity:0.5;}
+.dest-label h4{font-family:'Playfair Display',serif;font-size:1rem;color:#fff;font-weight:700;}
+.dest-label p{font-size:0.75rem;color:rgba(255,255,255,0.7);margin-top:3px;}
+
+/* DISNEY CRUISE FEATURE */
+.dcl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:28px;}
+.dcl-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:20px;}
+.dcl-card-icon{font-size:1.8rem;margin-bottom:10px;}
+.dcl-card h4{color:var(--gold);font-size:0.85rem;font-weight:800;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;}
+.dcl-card p{font-size:0.83rem;color:rgba(255,255,255,0.75);line-height:1.6;}
+
+/* FORM */
+.form-section{background:var(--navy);padding:80px 40px;}
+.form-wrap{max-width:720px;margin:0 auto;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{display:flex;flex-direction:column;gap:7px;}
+.form-group.full{grid-column:1/-1;}
+.form-group label{font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.8px;color:rgba(255,255,255,0.65);}
+.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);border-radius:10px;padding:12px 16px;color:#fff;font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:600;outline:none;width:100%;transition:border-color 0.2s;}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.3);}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
+.form-group select option{background:var(--navy);color:#fff;}
+.form-group textarea{resize:vertical;min-height:110px;}
+.checkbox-group{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;}
+.checkbox-label{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,0.8);font-size:0.85rem;font-weight:600;cursor:pointer;}
+.checkbox-label input[type=checkbox]{width:16px;height:16px;accent-color:var(--gold);}
+.form-submit{width:100%;margin-top:24px;background:var(--gold);color:var(--navy);border:none;border-radius:50px;padding:16px;font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;transition:background 0.2s,transform 0.2s;}
+.form-submit:hover{background:var(--gold-light);transform:translateY(-2px);}
+.form-note{text-align:center;margin-top:14px;font-size:0.8rem;color:rgba(255,255,255,0.4);}
+
+footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(255,255,255,0.1);}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:50px;margin-bottom:32px;}
+.footer-brand p{font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.7;margin-top:12px;max-width:300px;}
+.footer-col h4{font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:16px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:9px;}
+.footer-col a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.85rem;transition:color 0.2s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto;}
+.footer-bottom p{font-size:0.75rem;color:rgba(255,255,255,0.3);}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.sparkle{position:fixed;pointer-events:none;z-index:9999;width:7px;height:7px;border-radius:50%;background:var(--gold);animation:sparkle-fade 0.6s ease forwards;}
+@keyframes sparkle-fade{0%{opacity:1;transform:scale(1) translateY(0);}100%{opacity:0;transform:scale(0.2) translateY(-20px);}}
+@media(max-width:768px){nav{padding:14px 20px;}.nav-links{display:none;}section{padding:60px 24px;}.two-col{grid-template-columns:1fr;gap:36px;}.form-grid{grid-template-columns:1fr;}.footer-inner{grid-template-columns:1fr;gap:28px;}.footer-bottom{flex-direction:column;gap:8px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Gather <span>&</span> Go Travel Co.</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="disney.html">Disney</a></li>
+    <li><a href="cruises.html" class="active">Cruises</a></li>
+    <li><a href="universal.html">Universal</a></li>
+    <li><a href="allInclusive.html">All-Inclusive</a></li>
+    <li><a href="#cruise-form" class="nav-cta">Plan My Cruise ✦</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="eyebrow">🚢 Family Cruise Specialists</div>
+    <h1>The Ocean Is Calling —<br><em>Answer It Together</em></h1>
+    <p>From Disney's magical fleet to Royal Caribbean's adventure ships, we find the perfect cruise for your family's ages, budget, and bucket list — then handle every detail of booking it.</p>
+    <a href="#cruise-form" class="btn-primary">🚢 Find My Family's Cruise</a>
+    <a href="#cruise-lines" class="btn-outline">Compare Cruise Lines</a>
+  </div>
+</section>
+
+<!-- WHY CRUISE -->
+<section style="background:var(--warm-white);">
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <span class="section-eyebrow">Why Families Love Cruising</span>
+        <h2 class="section-title">One Price. <em>Everything Included.</em></h2>
+        <p class="section-sub">A cruise is one of the best values in family travel. You unpack once, wake up somewhere new every day, and the kids are entertained around the clock. Here's why families keep coming back:</p>
+        <ul class="perks-list reveal">
+          <li><span class="perk-check">✓</span> Meals, entertainment & activities included in your fare</li>
+          <li><span class="perk-check">✓</span> Kids clubs for every age group — babies to teens</li>
+          <li><span class="perk-check">✓</span> Adults-only spaces so parents get a break too</li>
+          <li><span class="perk-check">✓</span> Multiple destinations in one vacation</li>
+          <li><span class="perk-check">✓</span> No driving — just unpack once and sail</li>
+          <li><span class="perk-check">✓</span> Something for every budget, from 3-night to 14-night sailings</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="img-ph" style="height:360px;background:linear-gradient(150deg,#0a1e4a,#0a5a8a,#00b4d8);">
+          <div class="icon">🌅</div>
+          <div>Family on a Cruise Deck Photo</div>
+          <div class="lbl">Add your favorite cruise photo here</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISNEY CRUISE SPOTLIGHT -->
+<section class="dark-section" id="disney-cruise">
+  <div class="inner">
+    <div style="text-align:center;margin-bottom:40px;">
+      <span class="section-eyebrow" style="color:var(--gold);">Our Top Pick for Families</span>
+      <h2 class="section-title" style="color:#fff;">Disney Cruise Line — <em style="color:var(--magic-teal);">Magic at Sea</em></h2>
+      <p style="color:rgba(255,255,255,0.7);font-size:1rem;line-height:1.7;max-width:640px;margin:0 auto;">Disney Cruise Line is in a category of its own. No other cruise line comes close to the level of family experience, character interactions, entertainment, and sheer wonder that DCL delivers.</p>
+    </div>
+    <div class="two-col reveal" style="gap:50px;">
+      <div>
+        <div class="img-ph" style="height:320px;background:linear-gradient(150deg,#0a1e4a,#1a4a8a,#0090c0);">
+          <div class="icon">🛳️</div>
+          <div>Disney Cruise Ship Photo</div>
+          <div class="lbl">Add a photo of a DCL ship or Castaway Cay</div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:#fff;margin-bottom:16px;">Why Disney Cruise Line is the Gold Standard</h3>
+        <ul class="perks-list" style="margin-top:0;">
+          <li style="color:rgba(255,255,255,0.85);"><span class="perk-check">✓</span> Character meets, photos & interactions exclusive to the ship</li>
+          <li style="color:rgba(255,255,255,0.85);"><span class="perk-check">✓</span> Broadway-quality shows every night — no extra cost</li>
+          <li style="color:rgba(255,255,255,0.85);"><span class="perk-check">✓</span> Rotational dining — different restaurant every night, same servers</li>
+          <li style="color:rgba(255,255,255,0.85);"><span class="perk-check">✓</span> Castaway Cay — Disney's private Bahamian island</li>
+          <li style="color:rgba(255,255,255,0.85);"><span class="perk-check">✓</span> Adults-only areas: Quiet Cove Pool, Palo, Remy</li>
+          <li style="color:rgba(255,255,255,0.85);"><span class="perk-check">✓</span> Enchanted Storybook nights & deck parties</li>
+          <li style="color:rgba(255,255,255,0.85);"><span class="perk-check">✓</span> Itineraries: Bahamas, Caribbean, Mediterranean & more</li>
+        </ul>
+      </div>
+    </div>
+    <div class="dcl-grid reveal" style="margin-top:50px;">
+      <div class="dcl-card">
+        <div class="dcl-card-icon">🏝️</div>
+        <h4>Castaway Cay</h4>
+        <p>Disney's own private island in the Bahamas. Family beaches, adult-only beach, waterslide, and activities all day long.</p>
+      </div>
+      <div class="dcl-card">
+        <div class="dcl-card-icon">👸</div>
+        <h4>Character Experiences</h4>
+        <p>Meet Mickey, Minnie, princesses and heroes in settings you simply can't get at the parks. No FastPass needed.</p>
+      </div>
+      <div class="dcl-card">
+        <div class="dcl-card-icon">🎭</div>
+        <h4>Nightly Entertainment</h4>
+        <p>Original Disney musicals, themed deck parties, and Pirate Night with fireworks at sea every sailing.</p>
+      </div>
+      <div class="dcl-card">
+        <div class="dcl-card-icon">👶</div>
+        <h4>It's a Small World Nursery</h4>
+        <p>Care for babies and toddlers under 3 — so parents of little ones can enjoy the ship too.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRUISE LINES -->
+<section id="cruise-lines" style="background:var(--cream);">
+  <div class="inner">
+    <div style="text-align:center;margin-bottom:10px;">
+      <span class="section-eyebrow">Compare Cruise Lines</span>
+      <h2 class="section-title">Find Your <em>Perfect Fleet</em></h2>
+      <p class="section-sub" style="margin:0 auto;">Every cruise line has a different personality. We'll match your family's vibe to the right ship so you get the most out of every day at sea.</p>
+    </div>
+    <div class="cruise-lines reveal">
+
+      <div class="cl-card">
+        <div class="cl-header cl-disney">
+          <div class="cl-badge badge-fav">Our #1 Pick</div>
+          <div class="cl-icon">🛳️</div>
+          <h3>Disney Cruise Line</h3>
+          <p>The ultimate family cruise experience</p>
+        </div>
+        <div class="cl-body">
+          <ul class="cl-features">
+            <li>Character dining & exclusive meets</li>
+            <li>Broadway-quality nightly shows</li>
+            <li>Castaway Cay private island stops</li>
+            <li>Nursery for babies under 3</li>
+            <li>Adults-only restaurant: Palo & Remy</li>
+            <li>Itineraries: Bahamas, Caribbean, Europe</li>
+          </ul>
+          <span class="cl-tag">Best for: All families, Disney lovers</span>
+        </div>
+      </div>
+
+      <div class="cl-card">
+        <div class="cl-header cl-royal">
+          <div class="cl-badge badge-pop">Most Popular</div>
+          <div class="cl-icon">👑</div>
+          <h3>Royal Caribbean</h3>
+          <p>Mega-ships packed with adventure</p>
+        </div>
+        <div class="cl-body">
+          <ul class="cl-features">
+            <li>FlowRider surf simulators on deck</li>
+            <li>Rock climbing walls & zip lines</li>
+            <li>Adventure Ocean kids club (3–17)</li>
+            <li>Perfect Storm waterslide complex</li>
+            <li>Huge variety of dining options</li>
+            <li>Caribbean, Bahamas, Europe sailings</li>
+          </ul>
+          <span class="cl-tag">Best for: Thrill-seeking, active families</span>
+        </div>
+      </div>
+
+      <div class="cl-card">
+        <div class="cl-header cl-celebrity">
+          <div class="cl-icon">⭐</div>
+          <h3>Celebrity Cruises</h3>
+          <p>Premium experience with a modern edge</p>
+        </div>
+        <div class="cl-body">
+          <ul class="cl-features">
+            <li>Modern luxury at mid-premium pricing</li>
+            <li>Celebrity Kids program (3–17)</li>
+            <li>Award-winning specialty dining</li>
+            <li>Solstice-class ships with lawn clubs</li>
+            <li>Popular for Europe & Alaska sailings</li>
+            <li>Great for families who value dining & service</li>
+          </ul>
+          <span class="cl-tag">Best for: Food lovers, older kids, Europe trips</span>
+        </div>
+      </div>
+
+      <div class="cl-card">
+        <div class="cl-header cl-carnival">
+          <div class="cl-icon">🎉</div>
+          <h3>Carnival Cruise Line</h3>
+          <p>Fun for every budget</p>
+        </div>
+        <div class="cl-body">
+          <ul class="cl-features">
+            <li>WaterWorks aqua parks on deck</li>
+            <li>Camp Ocean kids program</li>
+            <li>Wide variety of short itineraries</li>
+            <li>Dr. Seuss-themed activities for kids</li>
+            <li>Most affordable major cruise line</li>
+            <li>Great for first-time cruisers</li>
+          </ul>
+          <span class="cl-tag">Best for: Budget families, first-timers</span>
+        </div>
+      </div>
+
+      <div class="cl-card">
+        <div class="cl-header cl-ncl">
+          <div class="cl-icon">🌊</div>
+          <h3>Norwegian Cruise Line</h3>
+          <p>Freestyle freedom on the seas</p>
+        </div>
+        <div class="cl-body">
+          <ul class="cl-features">
+            <li>No set dining times — eat when you want</li>
+            <li>Splash Academy for ages 3–17</li>
+            <li>Ropes course & waterslides on deck</li>
+            <li>Excellent for Alaska & Europe</li>
+            <li>Freestyle perks packages available</li>
+            <li>Great for families who hate schedules</li>
+          </ul>
+          <span class="cl-tag">Best for: Flexible families, Alaska/Europe</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE TABLE -->
+<section class="blue-section">
+  <div class="inner">
+    <div style="text-align:center;margin-bottom:10px;">
+      <span class="section-eyebrow">Side by Side</span>
+      <h2 class="section-title">Quick <em>Comparison</em></h2>
+    </div>
+    <div class="compare-wrap reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>🛳️ Disney</th>
+            <th>👑 Royal Caribbean</th>
+            <th>⭐ Celebrity</th>
+            <th>🎉 Carnival</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Character Meets</td><td class="yes">✔ Yes</td><td class="no">✘ No</td><td class="no">✘ No</td><td class="no">✘ No</td></tr>
+          <tr><td>Kids Club (all ages)</td><td class="yes">✔ Yes</td><td class="yes">✔ Yes</td><td class="yes">✔ Yes</td><td class="yes">✔ Yes</td></tr>
+          <tr><td>Baby/Toddler Care</td><td class="yes">✔ Yes</td><td class="yes">✔ Yes</td><td class="partial">~ Limited</td><td class="no">✘ No</td></tr>
+          <tr><td>Private Island</td><td class="yes">✔ Castaway Cay</td><td class="yes">✔ Perfect Day</td><td class="no">✘ No</td><td class="partial">~ Some itineraries</td></tr>
+          <tr><td>Thrill Rides on Ship</td><td class="partial">~ Splash zones</td><td class="yes">✔ FlowRider + more</td><td class="partial">~ Limited</td><td class="yes">✔ WaterWorks</td></tr>
+          <tr><td>Nightly Live Shows</td><td class="yes">✔ Broadway-level</td><td class="yes">✔ Yes</td><td class="yes">✔ Yes</td><td class="yes">✔ Yes</td></tr>
+          <tr><td>Adults-Only Spaces</td><td class="yes">✔ Yes</td><td class="yes">✔ Yes</td><td class="yes">✔ Yes</td><td class="yes">✔ Yes</td></tr>
+          <tr><td>Budget-Friendly</td><td class="no">✘ Premium</td><td class="partial">~ Mid-range</td><td class="partial">~ Mid-premium</td><td class="yes">✔ Most affordable</td></tr>
+          <tr><td>Best For</td><td>Disney fans & all families</td><td>Active, thrill-seekers</td><td>Food & Europe lovers</td><td>First-timers & budgets</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section style="background:var(--cream);">
+  <div class="inner">
+    <div style="text-align:center;margin-bottom:10px;">
+      <span class="section-eyebrow">Where Will You Sail?</span>
+      <h2 class="section-title">Popular <em>Cruise Destinations</em></h2>
+      <p class="section-sub" style="margin:0 auto;">From the white sands of the Bahamas to the glaciers of Alaska, we book cruises to destinations around the world — curated for families.</p>
+    </div>
+    <div class="dest-grid reveal">
+      <div class="dest-card dest-caribbean">
+        <div class="dest-icon">🌴</div>
+        <div class="dest-label"><h4>Caribbean</h4><p>Year-round sunshine</p></div>
+      </div>
+      <div class="dest-card dest-bahamas">
+        <div class="dest-icon">🏝️</div>
+        <div class="dest-label"><h4>Bahamas</h4><p>Close to home, big on fun</p></div>
+      </div>
+      <div class="dest-card dest-alaska">
+        <div class="dest-icon">🧊</div>
+        <div class="dest-label"><h4>Alaska</h4><p>Glaciers & wildlife</p></div>
+      </div>
+      <div class="dest-card dest-europe">
+        <div class="dest-icon">🏛️</div>
+        <div class="dest-label"><h4>Mediterranean</h4><p>History & culture</p></div>
+      </div>
+      <div class="dest-card dest-hawaii">
+        <div class="dest-icon">🌺</div>
+        <div class="dest-label"><h4>Hawaii</h4><p>Island-hopping paradise</p></div>
+      </div>
+      <div class="dest-card dest-mexico">
+        <div class="dest-icon">🌮</div>
+        <div class="dest-label"><h4>Mexican Riviera</h4><p>Culture & beaches</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY BOOK WITH ME -->
+<section class="dark-section">
+  <div class="inner">
+    <div class="two-col">
+      <div>
+        <span class="section-eyebrow" style="color:var(--gold);">Why Book Through Me</span>
+        <h2 class="section-title" style="color:#fff;">More Than Just <em style="color:var(--magic-teal);">a Booking</em></h2>
+        <p style="color:rgba(255,255,255,0.7);font-size:1rem;line-height:1.7;margin-bottom:20px;">Anyone can book a cruise online. Here's why working with Gather & Go Travel Co. gets you more:</p>
+        <ul class="perks-list">
+          <li style="color:rgba(255,255,255,0.85);"><span class="perk-check">✓</span> Access to group rates & exclusive perks through Boardwalk Travel Agency</li>
+          <li style="color:rgba(255,255,255,0.85);"><span class="perk-check">✓</span> Stateroom category guidance — balcony vs. inside vs. suite</li>
+          <li style="color:rgba(255,255,255,0.85);"><span class="perk-check">✓</span> Shore excursion recommendations tailored to your family</li>
+          <li style="color:rgba(255,255,255,0.85);"><span class="perk-check">✓</span> Dining & activity reservations set up before you board</li>
+          <li style="color:rgba(255,255,255,0.85);"><span class="perk-check">✓</span> Onboard credit opportunities you can't get booking direct</li>
+          <li style="color:rgba(255,255,255,0.85);"><span class="perk-check">✓</span> Someone in your corner if anything goes wrong</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="img-ph" style="height:340px;background:linear-gradient(150deg,#0a2a4a,#0a6a8a,#00b4d8);">
+          <div class="icon">⚓</div>
+          <div>Family Shore Excursion Photo</div>
+          <div class="lbl">Add a photo from a cruise port or excursion</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="cruise-form">
+  <div class="form-wrap">
+    <div style="text-align:center;margin-bottom:36px;">
+      <span class="section-eyebrow" style="color:var(--gold);">Let's Set Sail</span>
+      <h2 class="section-title" style="color:#fff;">Plan My <em style="color:var(--magic-teal);">Family Cruise</em></h2>
+      <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;line-height:1.7;margin-bottom:0;">Answer a few questions and I'll put together cruise options perfectly matched to your family. Free, no pressure, no obligation.</p>
+    </div>
+    <form onsubmit="handleSubmit(event)">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="First & Last Name" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="(000) 000-0000">
+        </div>
+        <div class="form-group">
+          <label>Number of Travelers</label>
+          <select>
+            <option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5 guests</option><option>6+ guests</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Children's Ages</label>
+          <input type="text" placeholder="e.g. 3, 6, 11 (or N/A)">
+        </div>
+        <div class="form-group">
+          <label>Approximate Travel Dates</label>
+          <input type="text" placeholder="e.g. Spring 2026 or flexible">
+        </div>
+        <div class="form-group full">
+          <label>Preferred Cruise Line</label>
+          <select>
+            <option>Disney Cruise Line (my top pick!)</option>
+            <option>Royal Caribbean</option>
+            <option>Celebrity Cruises</option>
+            <option>Carnival Cruise Line</option>
+            <option>Norwegian Cruise Line</option>
+            <option>No preference — help me decide!</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>Preferred Destination</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label"><input type="checkbox"> 🌴 Caribbean</label>
+            <label class="checkbox-label"><input type="checkbox"> 🏝️ Bahamas</label>
+            <label class="checkbox-label"><input type="checkbox"> 🧊 Alaska</label>
+            <label class="checkbox-label"><input type="checkbox"> 🏛️ Mediterranean/Europe</label>
+            <label class="checkbox-label"><input type="checkbox"> 🌺 Hawaii</label>
+            <label class="checkbox-label"><input type="checkbox"> Open to suggestions!</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Trip Length</label>
+          <select>
+            <option>3–4 nights (short getaway)</option>
+            <option>5–6 nights</option>
+            <option>7 nights</option>
+            <option>8–10 nights</option>
+            <option>11+ nights</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Stateroom Preference</label>
+          <select>
+            <option>Interior (most budget-friendly)</option>
+            <option>Oceanview</option>
+            <option>Balcony (my most popular!)</option>
+            <option>Suite</option>
+            <option>Not sure — help me decide</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>What's Most Important to Your Family?</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label"><input type="checkbox"> Kids Club / Teen Club</label>
+            <label class="checkbox-label"><input type="checkbox"> Character Experiences</label>
+            <label class="checkbox-label"><input type="checkbox"> Thrills & Water Slides</label>
+            <label class="checkbox-label"><input type="checkbox"> Shore Excursions</label>
+            <label class="checkbox-label"><input type="checkbox"> Dining & Specialty Restaurants</label>
+            <label class="checkbox-label"><input type="checkbox"> Adults-Only Time</label>
+            <label class="checkbox-label"><input type="checkbox"> Private Island Stop</label>
+          </div>
+        </div>
+        <div class="form-group full">
+          <label>Estimated Budget (full trip, not per person)</label>
+          <select>
+            <option>Under $3,000</option>
+            <option>$3,000 – $5,000</option>
+            <option>$5,000 – $8,000</option>
+            <option>$8,000 – $12,000</option>
+            <option>$12,000+</option>
+            <option>Flexible / not sure yet</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>Have you cruised before?</label>
+          <select>
+            <option>Yes, and we loved it!</option>
+            <option>Yes, but we want to try something different</option>
+            <option>No — this would be our first cruise</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label>Anything else I should know?</label>
+          <textarea placeholder="Special occasions, dietary needs, accessibility, a specific ship you've had your eye on..."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="form-submit">🚢 Send My Cruise Request</button>
+      <p class="form-note">I typically respond within 24 hours. Planning is always free!</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="font-size:1.2rem;">Gather <span style="color:#fff;">&</span> Go Travel Co.</a>
+      <p>Family cruise specialists & Disney vacation planners. Proudly part of Boardwalk Travel Agency.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="disney.html">Disney Vacations</a></li>
+        <li><a href="cruises.html">Cruises</a></li>
+        <li><a href="universal.html">Universal Orlando</a></li>
+        <li><a href="allInclusive.html">All-Inclusive Resorts</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:gatherandgotc@gmail.com">gatherandgotc@gmail.com</a></li>
+        <li><a href="#cruise-form">Free Consultation</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Gather & Go Travel Co. All rights reserved.</p>
+    <p>Member of Boardwalk Travel Agency</p>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.addEventListener('mousemove', (e) => {
+  if (Math.random() > 0.75) {
+    const s = document.createElement('div'); s.className = 'sparkle';
+    s.style.left = e.clientX + 'px'; s.style.top = e.clientY + 'px';
+    const c = ['#f5a623','#FFD700','#00b4d8','#fff'];
+    s.style.background = c[Math.floor(Math.random()*c.length)];
+    document.body.appendChild(s); setTimeout(() => s.remove(), 600);
+  }
+});
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = '✅ Request Sent! We\'ll be in touch soon.';
+  btn.style.background = '#22c55e'; btn.disabled = true;
+}
+</script>
+</body>
+</html>
