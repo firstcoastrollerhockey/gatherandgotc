@@ -529,6 +529,15 @@
     padding: 32px 28px 24px;
     background: var(--navy);
     position: relative;
+    overflow: hidden;
+  }
+
+  .cruise-card-top::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    pointer-events: none;
   }
 
   .cruise-card-top .badge {
@@ -543,20 +552,27 @@
     border-radius: 50px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    z-index: 2;
   }
 
-  .cruise-icon { font-size: 2.5rem; margin-bottom: 12px; }
+  .cruise-icon { font-size: 2.5rem; margin-bottom: 12px; position: relative; z-index: 2; }
 
   .cruise-card-top h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.3rem;
     color: #fff;
     margin-bottom: 6px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+    position: relative;
+    z-index: 2;
   }
 
   .cruise-card-top p {
     font-size: 0.85rem;
-    color: rgba(255,255,255,0.65);
+    color: rgba(255,255,255,0.95);
+    text-shadow: 0 1px 6px rgba(0,0,0,0.9);
+    position: relative;
+    z-index: 2;
   }
 
   .cruise-card-body {
