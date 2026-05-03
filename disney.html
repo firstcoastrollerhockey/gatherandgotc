@@ -601,13 +601,25 @@ async function handleSubmit(e) {
   btn.disabled = true;
 
   const formData = { formType: 'Disney' };
-  e.target.querySelectorAll('input, select, textarea').forEach(el => {
-    if (el.type === 'checkbox') {
-      if (el.checked) formData[el.name] = 'Yes';
-    } else if (el.name) {
-      formData[el.name] = el.value;
-    }
+
+  // Handle regular fields
+  e.target.querySelectorAll('input:not([type=checkbox]), select, textarea').forEach(el => {
+    if (el.name) formData[el.name] = el.value;
   });
+
+  // Combine park checkboxes into one field
+  const parks = [];
+  e.target.querySelectorAll('input[type=checkbox][name^="Park"]').forEach(el => {
+    if (el.checked) parks.push(el.name.replace('Park - ', ''));
+  });
+  if (parks.length) formData['Parks'] = parks.join(', ');
+
+  // Combine must-have checkboxes into one field
+  const mustHave = [];
+  e.target.querySelectorAll('input[type=checkbox][name^="Must Have"]').forEach(el => {
+    if (el.checked) mustHave.push(el.name.replace('Must Have - ', ''));
+  });
+  if (mustHave.length) formData['Must-Have Experiences'] = mustHave.join(', ');
 
   try {
     await fetch(SCRIPT_URL, {
