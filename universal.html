@@ -544,13 +544,25 @@ async function handleSubmit(e) {
   btn.disabled = true;
 
   const formData = { formType: 'Universal' };
-  e.target.querySelectorAll('input, select, textarea').forEach(el => {
-    if (el.type === 'checkbox') {
-      if (el.checked) formData[el.name] = 'Yes';
-    } else if (el.name) {
-      formData[el.name] = el.value;
-    }
+
+  // Handle regular fields
+  e.target.querySelectorAll('input:not([type=checkbox]), select, textarea').forEach(el => {
+    if (el.name) formData[el.name] = el.value;
   });
+
+  // Combine park checkboxes into one field
+  const parks = [];
+  e.target.querySelectorAll('input[type=checkbox][name^="Park"]').forEach(el => {
+    if (el.checked) parks.push(el.name.replace('Park - ', ''));
+  });
+  if (parks.length) formData['Parks'] = parks.join(', ');
+
+  // Combine excited about checkboxes into one field
+  const excited = [];
+  e.target.querySelectorAll('input[type=checkbox][name^="Excited"]').forEach(el => {
+    if (el.checked) excited.push(el.name.replace('Excited - ', ''));
+  });
+  if (excited.length) formData['Most Excited About'] = excited.join(', ');
 
   try {
     await fetch(SCRIPT_URL, {
