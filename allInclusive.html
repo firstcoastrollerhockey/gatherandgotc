@@ -572,13 +572,25 @@ async function handleSubmit(e) {
   btn.disabled = true;
 
   const formData = { formType: 'AllInclusive' };
-  e.target.querySelectorAll('input, select, textarea').forEach(el => {
-    if (el.type === 'checkbox') {
-      if (el.checked) formData[el.name] = 'Yes';
-    } else if (el.name) {
-      formData[el.name] = el.value;
-    }
+
+  // Handle regular fields
+  e.target.querySelectorAll('input:not([type=checkbox]), select, textarea').forEach(el => {
+    if (el.name) formData[el.name] = el.value;
   });
+
+  // Combine destination checkboxes into one field
+  const destinations = [];
+  e.target.querySelectorAll('input[type=checkbox][name^="Destination"]').forEach(el => {
+    if (el.checked) destinations.push(el.name.replace('Destination - ', ''));
+  });
+  if (destinations.length) formData['Preferred Destinations'] = destinations.join(', ');
+
+  // Combine priority checkboxes into one field
+  const priorities = [];
+  e.target.querySelectorAll('input[type=checkbox][name^="Priority"]').forEach(el => {
+    if (el.checked) priorities.push(el.name.replace('Priority - ', ''));
+  });
+  if (priorities.length) formData['Priorities'] = priorities.join(', ');
 
   try {
     await fetch(SCRIPT_URL, {
