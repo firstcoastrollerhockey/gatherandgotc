@@ -691,11 +691,35 @@ document.addEventListener('mousemove', (e) => {
     document.body.appendChild(s); setTimeout(() => s.remove(), 600);
   }
 });
-function handleSubmit(e) {
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyUbG2BnV-Lg-QkA05lBnWnlLN2w4ek9zRh-uRS0xIkJgPLYafvTFoHmRTZMgVko9pH/exec';
+
+async function handleSubmit(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  btn.textContent = '✅ Request Sent! We\'ll be in touch soon.';
-  btn.style.background = '#22c55e'; btn.disabled = true;
+  const btn = e.target.querySelector('button[type=submit]');
+  const originalText = btn.textContent;
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  const formData = { formType: 'Cruises' };
+  e.target.querySelectorAll('input, select, textarea').forEach(el => {
+    if (el.name) formData[el.name] = el.value;
+    else if (el.placeholder) formData[el.placeholder] = el.value;
+  });
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+    btn.textContent = '✅ Request Sent! We\'ll be in touch soon.';
+    btn.style.background = '#22c55e';
+  } catch(err) {
+    btn.textContent = originalText;
+    btn.disabled = false;
+    alert('Something went wrong. Please email us directly at gatherandgotc@gmail.com');
+  }
 }
 </script>
 </body>
