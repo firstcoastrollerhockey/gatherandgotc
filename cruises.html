@@ -471,33 +471,33 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
       <div class="form-grid">
         <div class="form-group">
           <label>Your Name</label>
-          <input type="text" placeholder="First & Last Name" required>
+          <input type="text" name="Name" placeholder="First & Last Name" required>
         </div>
         <div class="form-group">
           <label>Email Address</label>
-          <input type="email" placeholder="you@example.com" required>
+          <input type="email" name="Email" placeholder="you@example.com" required>
         </div>
         <div class="form-group">
           <label>Phone Number</label>
-          <input type="tel" placeholder="(000) 000-0000">
+          <input type="tel" name="Phone" placeholder="(000) 000-0000">
         </div>
         <div class="form-group">
           <label>Number of Travelers</label>
-          <select>
+          <select name="Travelers">
             <option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5 guests</option><option>6+ guests</option>
           </select>
         </div>
         <div class="form-group">
           <label>Children's Ages</label>
-          <input type="text" placeholder="e.g. 3, 6, 11 (or N/A)">
+          <input type="text" name="Childrens Ages" placeholder="e.g. 3, 6, 11 (or N/A)">
         </div>
         <div class="form-group">
           <label>Approximate Travel Dates</label>
-          <input type="text" placeholder="e.g. Spring 2026 or flexible">
+          <input type="text" name="Travel Dates" placeholder="e.g. Spring 2026 or flexible">
         </div>
         <div class="form-group full">
           <label>Preferred Cruise Line</label>
-          <select>
+          <select name="Cruise Line">
             <option>Disney Cruise Line (my top pick!)</option>
             <option>Royal Caribbean</option>
             <option>Celebrity Cruises</option>
@@ -509,21 +509,21 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
         <div class="form-group full">
           <label>Preferred Destination</label>
           <div class="checkbox-group">
-            <label class="checkbox-label"><input type="checkbox"> 🌴 Caribbean</label>
-            <label class="checkbox-label"><input type="checkbox"> 🏝️ Bahamas</label>
-            <label class="checkbox-label"><input type="checkbox"> 🧊 Alaska</label>
-            <label class="checkbox-label"><input type="checkbox"> 🏛️ Mediterranean/Europe</label>
-            <label class="checkbox-label"><input type="checkbox"> 🌺 Hawaii</label>
-            <label class="checkbox-label"><input type="checkbox"> Open to suggestions!</label>
+            <label class="checkbox-label"><input type="checkbox" name="Destination - Caribbean"> 🌴 Caribbean</label>
+            <label class="checkbox-label"><input type="checkbox" name="Destination - Bahamas"> 🏝️ Bahamas</label>
+            <label class="checkbox-label"><input type="checkbox" name="Destination - Alaska"> 🧊 Alaska</label>
+            <label class="checkbox-label"><input type="checkbox" name="Destination - Mediterranean"> 🏛️ Mediterranean/Europe</label>
+            <label class="checkbox-label"><input type="checkbox" name="Destination - Hawaii"> 🌺 Hawaii</label>
+            <label class="checkbox-label"><input type="checkbox" name="Destination - Open"> Open to suggestions!</label>
           </div>
         </div>
         <div class="form-group">
           <label>Where Are You Traveling From?</label>
-          <input type="text" placeholder="e.g. Jacksonville, FL">
+          <input type="text" name="Traveling From" placeholder="e.g. Jacksonville, FL">
         </div>
         <div class="form-group">
           <label>Preferred Port of Departure</label>
-          <select>
+          <select name="Port of Departure">
             <option>No preference</option>
             <optgroup label="── Florida ──">
               <option>Port Canaveral, FL (Orlando area)</option>
@@ -587,7 +587,7 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
         </div>
         <div class="form-group">
           <label>Trip Length</label>
-          <select>
+          <select name="Trip Length">
             <option>3–4 nights (short getaway)</option>
             <option>5–6 nights</option>
             <option>7 nights</option>
@@ -597,7 +597,7 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
         </div>
         <div class="form-group">
           <label>Stateroom Preference</label>
-          <select>
+          <select name="Stateroom">
             <option>Interior (most budget-friendly)</option>
             <option>Oceanview</option>
             <option>Balcony (my most popular!)</option>
@@ -608,18 +608,18 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
         <div class="form-group full">
           <label>What's Most Important to Your Family?</label>
           <div class="checkbox-group">
-            <label class="checkbox-label"><input type="checkbox"> Kids Club / Teen Club</label>
-            <label class="checkbox-label"><input type="checkbox"> Character Experiences</label>
-            <label class="checkbox-label"><input type="checkbox"> Thrills & Water Slides</label>
-            <label class="checkbox-label"><input type="checkbox"> Shore Excursions</label>
-            <label class="checkbox-label"><input type="checkbox"> Dining & Specialty Restaurants</label>
-            <label class="checkbox-label"><input type="checkbox"> Adults-Only Time</label>
-            <label class="checkbox-label"><input type="checkbox"> Private Island Stop</label>
+            <label class="checkbox-label"><input type="checkbox" name="Priority - Kids Club"> Kids Club / Teen Club</label>
+            <label class="checkbox-label"><input type="checkbox" name="Priority - Characters"> Character Experiences</label>
+            <label class="checkbox-label"><input type="checkbox" name="Priority - Thrills"> Thrills & Water Slides</label>
+            <label class="checkbox-label"><input type="checkbox" name="Priority - Shore Excursions"> Shore Excursions</label>
+            <label class="checkbox-label"><input type="checkbox" name="Priority - Dining"> Dining & Specialty Restaurants</label>
+            <label class="checkbox-label"><input type="checkbox" name="Priority - Adults Only"> Adults-Only Time</label>
+            <label class="checkbox-label"><input type="checkbox" name="Priority - Private Island"> Private Island Stop</label>
           </div>
         </div>
         <div class="form-group full">
           <label>Estimated Budget (full trip, not per person)</label>
-          <select>
+          <select name="Budget">
             <option>Under $3,000</option>
             <option>$3,000 – $5,000</option>
             <option>$5,000 – $8,000</option>
@@ -630,7 +630,7 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
         </div>
         <div class="form-group full">
           <label>Have you cruised before?</label>
-          <select>
+          <select name="Previous Cruise Experience">
             <option>Yes, and we loved it!</option>
             <option>Yes, but we want to try something different</option>
             <option>No — this would be our first cruise</option>
@@ -638,7 +638,7 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
         </div>
         <div class="form-group full">
           <label>Anything else I should know?</label>
-          <textarea placeholder="Special occasions, dietary needs, accessibility, a specific ship you've had your eye on..."></textarea>
+          <textarea name="Additional Notes" placeholder="Special occasions, dietary needs, accessibility, a specific ship you've had your eye on..."></textarea>
         </div>
       </div>
       <button type="submit" class="form-submit">🚢 Send My Cruise Request</button>
@@ -702,8 +702,11 @@ async function handleSubmit(e) {
 
   const formData = { formType: 'Cruises' };
   e.target.querySelectorAll('input, select, textarea').forEach(el => {
-    if (el.name) formData[el.name] = el.value;
-    else if (el.placeholder) formData[el.placeholder] = el.value;
+    if (el.type === 'checkbox') {
+      if (el.checked) formData[el.name] = 'Yes';
+    } else if (el.name) {
+      formData[el.name] = el.value;
+    }
   });
 
   try {

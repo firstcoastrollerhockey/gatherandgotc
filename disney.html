@@ -457,19 +457,19 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
       <div class="form-grid">
         <div class="form-group">
           <label>Your Name</label>
-          <input type="text" placeholder="First & Last Name" required>
+          <input type="text" name="Name" placeholder="First & Last Name" required>
         </div>
         <div class="form-group">
           <label>Email Address</label>
-          <input type="email" placeholder="you@example.com" required>
+          <input type="email" name="Email" placeholder="you@example.com" required>
         </div>
         <div class="form-group">
           <label>Phone Number</label>
-          <input type="tel" placeholder="(000) 000-0000">
+          <input type="tel" name="Phone" placeholder="(000) 000-0000">
         </div>
         <div class="form-group">
           <label>Number of Travelers</label>
-          <select>
+          <select name="Travelers">
             <option>2 guests</option>
             <option>3 guests</option>
             <option>4 guests</option>
@@ -479,15 +479,15 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
         </div>
         <div class="form-group">
           <label>Children's Ages (if applicable)</label>
-          <input type="text" placeholder="e.g. 4, 7, 10">
+          <input type="text" name="Childrens Ages" placeholder="e.g. 4, 7, 10">
         </div>
         <div class="form-group">
           <label>Approximate Travel Dates</label>
-          <input type="text" placeholder="e.g. July 2025 or flexible">
+          <input type="text" name="Travel Dates" placeholder="e.g. July 2025 or flexible">
         </div>
         <div class="form-group">
           <label>Trip Length</label>
-          <select>
+          <select name="Trip Length">
             <option>3–4 days</option>
             <option>5–6 days</option>
             <option>7–8 days</option>
@@ -497,7 +497,7 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
         </div>
         <div class="form-group">
           <label>Resort Preference</label>
-          <select>
+          <select name="Resort Preference">
             <option>Value Resort (budget-friendly)</option>
             <option>Moderate Resort (mid-range)</option>
             <option>Deluxe Resort (premium)</option>
@@ -507,26 +507,26 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
         <div class="form-group full">
           <label>Which Parks Are You Most Excited About?</label>
           <div class="checkbox-group">
-            <label class="checkbox-label"><input type="checkbox"> 🏰 Magic Kingdom</label>
-            <label class="checkbox-label"><input type="checkbox"> 🌍 EPCOT</label>
-            <label class="checkbox-label"><input type="checkbox"> 🎬 Hollywood Studios</label>
-            <label class="checkbox-label"><input type="checkbox"> 🦁 Animal Kingdom</label>
-            <label class="checkbox-label"><input type="checkbox"> 🌊 Water Parks</label>
+            <label class="checkbox-label"><input type="checkbox" name="Park - Magic Kingdom"> 🏰 Magic Kingdom</label>
+            <label class="checkbox-label"><input type="checkbox" name="Park - EPCOT"> 🌍 EPCOT</label>
+            <label class="checkbox-label"><input type="checkbox" name="Park - Hollywood Studios"> 🎬 Hollywood Studios</label>
+            <label class="checkbox-label"><input type="checkbox" name="Park - Animal Kingdom"> 🦁 Animal Kingdom</label>
+            <label class="checkbox-label"><input type="checkbox" name="Park - Water Parks"> 🌊 Water Parks</label>
           </div>
         </div>
         <div class="form-group full">
           <label>Must-Have Experiences</label>
           <div class="checkbox-group">
-            <label class="checkbox-label"><input type="checkbox"> Character Dining</label>
-            <label class="checkbox-label"><input type="checkbox"> Fireworks Viewing</label>
-            <label class="checkbox-label"><input type="checkbox"> Star Wars: Galaxy's Edge</label>
-            <label class="checkbox-label"><input type="checkbox"> Bibbidi Bobbidi Boutique</label>
-            <label class="checkbox-label"><input type="checkbox"> VIP Tour</label>
+            <label class="checkbox-label"><input type="checkbox" name="Must Have - Character Dining"> Character Dining</label>
+            <label class="checkbox-label"><input type="checkbox" name="Must Have - Fireworks"> Fireworks Viewing</label>
+            <label class="checkbox-label"><input type="checkbox" name="Must Have - Galaxy's Edge"> Star Wars: Galaxy's Edge</label>
+            <label class="checkbox-label"><input type="checkbox" name="Must Have - Bibbidi"> Bibbidi Bobbidi Boutique</label>
+            <label class="checkbox-label"><input type="checkbox" name="Must Have - VIP Tour"> VIP Tour</label>
           </div>
         </div>
         <div class="form-group full">
           <label>Estimated Budget (per family, not per person)</label>
-          <select>
+          <select name="Budget">
             <option>Under $3,000</option>
             <option>$3,000 – $5,000</option>
             <option>$5,000 – $8,000</option>
@@ -537,7 +537,7 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
         </div>
         <div class="form-group full">
           <label>Anything Else You'd Like Me to Know?</label>
-          <textarea placeholder="Special occasions, accessibility needs, first-time visit, dietary restrictions, characters your kids love..."></textarea>
+          <textarea name="Additional Notes" placeholder="Special occasions, accessibility needs, first-time visit, dietary restrictions, characters your kids love..."></textarea>
         </div>
       </div>
       <button type="submit" class="form-submit">✨ Send My Disney Request</button>
@@ -603,8 +603,11 @@ async function handleSubmit(e) {
 
   const formData = { formType: 'Disney' };
   e.target.querySelectorAll('input, select, textarea').forEach(el => {
-    if (el.name) formData[el.name] = el.value;
-    else if (el.placeholder) formData[el.placeholder] = el.value;
+    if (el.type === 'checkbox') {
+      if (el.checked) formData[el.name] = 'Yes';
+    } else if (el.name) {
+      formData[el.name] = el.value;
+    }
   });
 
   try {

@@ -418,19 +418,19 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
       <div class="form-grid">
         <div class="form-group">
           <label>Your Name</label>
-          <input type="text" placeholder="First & Last Name" required>
+          <input type="text" name="Name" placeholder="First & Last Name" required>
         </div>
         <div class="form-group">
           <label>Email Address</label>
-          <input type="email" placeholder="you@example.com" required>
+          <input type="email" name="Email" placeholder="you@example.com" required>
         </div>
         <div class="form-group">
           <label>Phone Number</label>
-          <input type="tel" placeholder="(000) 000-0000">
+          <input type="tel" name="Phone" placeholder="(000) 000-0000">
         </div>
         <div class="form-group">
           <label>Type of Trip</label>
-          <select>
+          <select name="Trip Type">
             <option>Family vacation (Beaches)</option>
             <option>Couples / Romantic (Sandals)</option>
             <option>Honeymoon (Sandals)</option>
@@ -441,15 +441,15 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
         </div>
         <div class="form-group">
           <label>Number of Travelers</label>
-          <select><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option></select>
+          <select name="Travelers"><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option></select>
         </div>
         <div class="form-group">
           <label>Children's Ages (if applicable)</label>
-          <input type="text" placeholder="e.g. 5, 8, 11 (or N/A)">
+          <input type="text" name="Childrens Ages" placeholder="e.g. 5, 8, 11 (or N/A)">
         </div>
         <div class="form-group full">
           <label>Resort Brand Preference</label>
-          <select>
+          <select name="Resort Brand">
             <option>Beaches (family all-inclusive)</option>
             <option>Sandals (adults-only luxury)</option>
             <option>Open to both — help me choose!</option>
@@ -458,21 +458,21 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
         <div class="form-group full">
           <label>Preferred Destination</label>
           <div class="checkbox-group">
-            <label class="checkbox-label"><input type="checkbox"> 🇯🇲 Jamaica</label>
-            <label class="checkbox-label"><input type="checkbox"> 🏝️ Turks & Caicos</label>
-            <label class="checkbox-label"><input type="checkbox"> 🌋 St. Lucia</label>
-            <label class="checkbox-label"><input type="checkbox"> 🐠 Bahamas</label>
-            <label class="checkbox-label"><input type="checkbox"> ⛵ Antigua</label>
-            <label class="checkbox-label"><input type="checkbox"> Open to suggestions!</label>
+            <label class="checkbox-label"><input type="checkbox" name="Destination - Jamaica"> 🇯🇲 Jamaica</label>
+            <label class="checkbox-label"><input type="checkbox" name="Destination - Turks and Caicos"> 🏝️ Turks & Caicos</label>
+            <label class="checkbox-label"><input type="checkbox" name="Destination - St Lucia"> 🌋 St. Lucia</label>
+            <label class="checkbox-label"><input type="checkbox" name="Destination - Bahamas"> 🐠 Bahamas</label>
+            <label class="checkbox-label"><input type="checkbox" name="Destination - Antigua"> ⛵ Antigua</label>
+            <label class="checkbox-label"><input type="checkbox" name="Destination - Open"> Open to suggestions!</label>
           </div>
         </div>
         <div class="form-group">
           <label>Approximate Travel Dates</label>
-          <input type="text" placeholder="e.g. February 2026 or flexible">
+          <input type="text" name="Travel Dates" placeholder="e.g. February 2026 or flexible">
         </div>
         <div class="form-group">
           <label>Trip Length</label>
-          <select>
+          <select name="Trip Length">
             <option>4–5 nights</option>
             <option>6–7 nights</option>
             <option>8–10 nights</option>
@@ -482,19 +482,19 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
         <div class="form-group full">
           <label>What's Most Important to You?</label>
           <div class="checkbox-group">
-            <label class="checkbox-label"><input type="checkbox"> 🏖️ Beach Quality</label>
-            <label class="checkbox-label"><input type="checkbox"> 🍽️ Dining & Restaurants</label>
-            <label class="checkbox-label"><input type="checkbox"> 🌊 Waterpark / Water Sports</label>
-            <label class="checkbox-label"><input type="checkbox"> 👶 Kids Club Programs</label>
-            <label class="checkbox-label"><input type="checkbox"> 🥂 Butler Service</label>
-            <label class="checkbox-label"><input type="checkbox"> 🐠 Snorkeling / Scuba</label>
-            <label class="checkbox-label"><input type="checkbox"> 💆 Spa & Wellness</label>
-            <label class="checkbox-label"><input type="checkbox"> 🎭 Nightly Entertainment</label>
+            <label class="checkbox-label"><input type="checkbox" name="Priority - Beach Quality"> 🏖️ Beach Quality</label>
+            <label class="checkbox-label"><input type="checkbox" name="Priority - Dining"> 🍽️ Dining & Restaurants</label>
+            <label class="checkbox-label"><input type="checkbox" name="Priority - Waterpark"> 🌊 Waterpark / Water Sports</label>
+            <label class="checkbox-label"><input type="checkbox" name="Priority - Kids Club"> 👶 Kids Club Programs</label>
+            <label class="checkbox-label"><input type="checkbox" name="Priority - Butler Service"> 🥂 Butler Service</label>
+            <label class="checkbox-label"><input type="checkbox" name="Priority - Snorkeling"> 🐠 Snorkeling / Scuba</label>
+            <label class="checkbox-label"><input type="checkbox" name="Priority - Spa"> 💆 Spa & Wellness</label>
+            <label class="checkbox-label"><input type="checkbox" name="Priority - Entertainment"> 🎭 Nightly Entertainment</label>
           </div>
         </div>
         <div class="form-group full">
           <label>Estimated Budget (full trip, not per person)</label>
-          <select>
+          <select name="Budget">
             <option>Under $3,000</option>
             <option>$3,000 – $5,000</option>
             <option>$5,000 – $8,000</option>
@@ -505,11 +505,11 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
         </div>
         <div class="form-group full">
           <label>Special Occasion?</label>
-          <input type="text" placeholder="e.g. Honeymoon, Anniversary, Birthday, First family trip...">
+          <input type="text" name="Special Occasion" placeholder="e.g. Honeymoon, Anniversary, Birthday, First family trip...">
         </div>
         <div class="form-group full">
           <label>Anything Else I Should Know?</label>
-          <textarea placeholder="Dietary needs, accessibility requirements, suite preferences, past resort experiences you loved or didn't love..."></textarea>
+          <textarea name="Additional Notes" placeholder="Dietary needs, accessibility requirements, suite preferences, past resort experiences you loved or didn't love..."></textarea>
         </div>
       </div>
       <button type="submit" class="form-submit">🌴 Send My Resort Request</button>
@@ -573,8 +573,11 @@ async function handleSubmit(e) {
 
   const formData = { formType: 'AllInclusive' };
   e.target.querySelectorAll('input, select, textarea').forEach(el => {
-    if (el.name) formData[el.name] = el.value;
-    else if (el.placeholder) formData[el.placeholder] = el.value;
+    if (el.type === 'checkbox') {
+      if (el.checked) formData[el.name] = 'Yes';
+    } else if (el.name) {
+      formData[el.name] = el.value;
+    }
   });
 
   try {
