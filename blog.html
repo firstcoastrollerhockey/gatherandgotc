@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tips & Guides | Gather & Go Travel Co.</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--gold:#f5a623;--gold-light:#ffd980;--magic-blue:#1a6bb5;--magic-teal:#00b4d8;--cream:#fffdf6;--warm-white:#fff9ee;--text-dark:#1a1a2e;--text-mid:#4a4a6a;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.97);backdrop-filter:blur(10px);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(245,166,35,0.3);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold);text-decoration:none;letter-spacing:0.5px;}
+.nav-logo span{color:#fff;}
+.nav-links{display:flex;gap:22px;list-style:none;align-items:center;}
+.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:0.82rem;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-cta{background:var(--gold)!important;color:var(--navy)!important;padding:8px 18px;border-radius:50px;font-weight:800!important;}
+
+/* HERO */
+.hero{min-height:40vh;background:var(--navy);display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 40px 70px;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 30% 80%,rgba(26,107,181,0.35) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 80% 20%,rgba(245,166,35,0.1) 0%,transparent 55%);}
+.hero-content{position:relative;z-index:2;max-width:700px;}
+.eyebrow{display:inline-block;background:rgba(245,166,35,0.15);border:1px solid rgba(245,166,35,0.5);color:var(--gold);font-size:0.78rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:6px 18px;border-radius:50px;margin-bottom:20px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:16px;}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero p{font-size:1rem;color:rgba(255,255,255,0.75);line-height:1.7;max-width:520px;margin:0 auto;}
+
+/* CATEGORIES */
+.categories{background:var(--warm-white);padding:40px 40px 0;}
+.categories-inner{max-width:1100px;margin:0 auto;display:flex;gap:12px;flex-wrap:wrap;}
+.cat-pill{padding:8px 20px;border-radius:50px;font-size:0.82rem;font-weight:800;cursor:pointer;border:1.5px solid transparent;transition:all 0.2s;text-decoration:none;}
+.cat-pill.active,.cat-pill:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+.cat-pill:not(.active){background:#fff;color:var(--text-dark);border-color:rgba(26,107,181,0.2);}
+
+/* BLOG GRID */
+.blog-section{background:var(--warm-white);padding:40px 40px 80px;}
+.blog-inner{max-width:1100px;margin:0 auto;}
+.featured-post{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:22px;overflow:hidden;border:1.5px solid rgba(26,107,181,0.1);margin-bottom:40px;background:#fff;transition:transform 0.25s,box-shadow 0.25s;}
+.featured-post:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,0.1);}
+.featured-img{min-height:320px;background:linear-gradient(150deg,#0a1e4a,#1a4a8a,#0090c0);display:flex;align-items:center;justify-content:center;font-size:4rem;}
+.featured-body{padding:40px;}
+.post-category{font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--magic-blue);margin-bottom:10px;display:block;}
+.featured-body h2{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--navy);margin-bottom:14px;line-height:1.2;}
+.featured-body p{font-size:0.9rem;color:var(--text-mid);line-height:1.7;margin-bottom:20px;}
+.post-meta{font-size:0.78rem;color:rgba(26,107,181,0.7);font-weight:700;margin-bottom:20px;}
+.read-more{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;font-weight:800;font-size:0.85rem;padding:10px 22px;border-radius:50px;text-decoration:none;transition:background 0.2s;}
+.read-more:hover{background:#1a2d50;}
+.featured-tag{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.68rem;font-weight:800;padding:3px 10px;border-radius:50px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;}
+
+/* POST GRID */
+.posts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;}
+.post-card{background:#fff;border-radius:20px;overflow:hidden;border:1.5px solid rgba(26,107,181,0.1);transition:transform 0.25s,box-shadow 0.25s;text-decoration:none;color:inherit;display:block;}
+.post-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.1);}
+.post-card-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:3rem;}
+.img-disney{background:linear-gradient(135deg,#0a1e4a,#1a4a8a,#0090c0);}
+.img-cruise{background:linear-gradient(135deg,#0a3a5a,#0a7aaa,#00b4d8);}
+.img-universal{background:linear-gradient(135deg,#1a0a3a,#4a1a7a,#8a2aaa);}
+.img-allincl{background:linear-gradient(135deg,#0a3a1a,#1a7a3a,#2aaa5a);}
+.img-tips{background:linear-gradient(135deg,#3a2a0a,#8a6a1a,#c0a030);}
+.post-card-body{padding:22px;}
+.post-card-body h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--navy);margin-bottom:8px;line-height:1.3;}
+.post-card-body p{font-size:0.85rem;color:var(--text-mid);line-height:1.65;margin-bottom:14px;}
+.post-footer{display:flex;align-items:center;justify-content:space-between;}
+.post-date{font-size:0.75rem;color:rgba(26,107,181,0.6);font-weight:700;}
+.post-arrow{font-size:0.85rem;color:var(--magic-blue);font-weight:800;}
+
+/* NEWSLETTER */
+.newsletter{background:var(--navy);padding:70px 40px;text-align:center;}
+.newsletter h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);color:#fff;margin-bottom:12px;}
+.newsletter p{font-size:0.95rem;color:rgba(255,255,255,0.7);margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;}
+.newsletter-form{display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center;}
+.newsletter-form input{flex:1;min-width:240px;background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.2);border-radius:50px;padding:14px 20px;color:#fff;font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:600;outline:none;}
+.newsletter-form input::placeholder{color:rgba(255,255,255,0.4);}
+.newsletter-form input:focus{border-color:var(--gold);}
+.newsletter-form button{background:var(--gold);color:var(--navy);border:none;border-radius:50px;padding:14px 28px;font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:800;cursor:pointer;transition:background 0.2s;}
+.newsletter-form button:hover{background:var(--gold-light);}
+
+/* INDIVIDUAL POST PAGE */
+.post-content{max-width:750px;margin:0 auto;padding:80px 40px;}
+.post-header{margin-bottom:40px;}
+.post-header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:var(--navy);line-height:1.15;margin-bottom:16px;}
+.post-body h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--navy);margin:36px 0 14px;}
+.post-body p{font-size:1rem;color:var(--text-mid);line-height:1.8;margin-bottom:18px;}
+.post-body ul{margin:0 0 18px 24px;}
+.post-body li{font-size:0.95rem;color:var(--text-mid);line-height:1.75;margin-bottom:6px;}
+.tip-box{background:#f0f7ff;border-left:4px solid var(--magic-blue);border-radius:0 12px 12px 0;padding:20px 24px;margin:28px 0;}
+.tip-box h4{font-size:0.85rem;font-weight:800;color:var(--magic-blue);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;}
+.tip-box p{font-size:0.9rem;color:var(--text-dark);margin:0;}
+
+/* FOOTER */
+footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(255,255,255,0.1);}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:50px;margin-bottom:32px;}
+.footer-brand p{font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.7;margin-top:12px;max-width:300px;}
+.footer-col h4{font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:16px;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:9px;}
+.footer-col a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.85rem;transition:color 0.2s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto;}
+.footer-bottom p{font-size:0.75rem;color:rgba(255,255,255,0.3);}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.sparkle{position:fixed;pointer-events:none;z-index:9999;width:7px;height:7px;border-radius:50%;background:var(--gold);animation:sparkle-fade 0.6s ease forwards;}
+@keyframes sparkle-fade{0%{opacity:1;transform:scale(1) translateY(0);}100%{opacity:0;transform:scale(0.2) translateY(-20px);}}
+@media(max-width:768px){nav{padding:14px 20px;}.nav-links{display:none;}.featured-post{grid-template-columns:1fr;}.post-content{padding:60px 24px;}.footer-inner{grid-template-columns:1fr;gap:28px;}.footer-bottom{flex-direction:column;gap:8px;}.blog-section,.categories{padding-left:24px;padding-right:24px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Gather <span>&</span> Go Travel Co.</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="disney.html">Disney</a></li>
+    <li><a href="cruises.html">Cruises</a></li>
+    <li><a href="universal.html">Universal</a></li>
+    <li><a href="allInclusive.html">All-Inclusive</a></li>
+    <li><a href="blog.html" class="active">Tips & Guides</a></li>
+    <li><a href="disney.html#disney-form" class="nav-cta">Plan My Trip ✦</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="eyebrow">✦ Tips, Tricks & Guides</div>
+    <h1>Your Family Vacation<br><em>Starts Here</em></h1>
+    <p>Insider tips, destination guides, and planning advice from a travel agent who lives and breathes family vacations. Updated regularly — bookmark this page!</p>
+  </div>
+</section>
+
+<!-- CATEGORY FILTERS -->
+<div class="categories">
+  <div class="categories-inner">
+    <a href="#" class="cat-pill active">All Posts</a>
+    <a href="#" class="cat-pill">🏰 Disney</a>
+    <a href="#" class="cat-pill">🚢 Cruises</a>
+    <a href="#" class="cat-pill">🎢 Universal</a>
+    <a href="#" class="cat-pill">🌴 All-Inclusive</a>
+    <a href="#" class="cat-pill">💡 Planning Tips</a>
+  </div>
+</div>
+
+<!-- BLOG POSTS -->
+<section class="blog-section">
+  <div class="blog-inner">
+
+    <!-- FEATURED POST -->
+    <div class="featured-post reveal">
+      <div class="featured-img img-disney">🏰</div>
+      <div class="featured-body">
+        <span class="featured-tag">Featured</span>
+        <span class="post-category">🏰 Disney Tips</span>
+        <h2>The Ultimate First-Timer's Guide to Walt Disney World</h2>
+        <p class="post-meta">May 2025 · 8 min read</p>
+        <p>Planning your first Disney World trip can feel overwhelming — four parks, 30+ resorts, dining reservations, Lightning Lane, and more. Here's everything you need to know before you go, broken down simply.</p>
+        <a href="blog-disney-guide.html" class="read-more">Read the Guide →</a>
+      </div>
+    </div>
+
+    <!-- POST GRID -->
+    <div class="posts-grid">
+
+      <a href="#" class="post-card reveal">
+        <div class="post-card-img img-disney">⚡</div>
+        <div class="post-card-body">
+          <span class="post-category">🏰 Disney Tips</span>
+          <h3>Lightning Lane vs. Standby: What's Actually Worth It?</h3>
+          <p>A honest breakdown of Disney's Lightning Lane system — when to buy it, when to skip it, and how to maximize your time in the parks without spending a fortune.</p>
+          <div class="post-footer">
+            <span class="post-date">April 2025</span>
+            <span class="post-arrow">Read More →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="post-card reveal">
+        <div class="post-card-img img-disney">🍽️</div>
+        <div class="post-card-body">
+          <span class="post-category">🏰 Disney Tips</span>
+          <h3>The Best Character Dining at Disney World (Ranked)</h3>
+          <p>From Cinderella's Royal Table to Chef Mickey's — we rank every character dining experience at Disney World so you know exactly which ones are worth the reservation.</p>
+          <div class="post-footer">
+            <span class="post-date">March 2025</span>
+            <span class="post-arrow">Read More →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="post-card reveal">
+        <div class="post-card-img img-cruise">🛳️</div>
+        <div class="post-card-body">
+          <span class="post-category">🚢 Cruises</span>
+          <h3>Disney Cruise Line vs. Royal Caribbean: Which is Right for Your Family?</h3>
+          <p>Both are incredible — but they're very different experiences. Here's how to decide which cruise line is the perfect fit for your family's ages, budget, and vacation style.</p>
+          <div class="post-footer">
+            <span class="post-date">March 2025</span>
+            <span class="post-arrow">Read More →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="post-card reveal">
+        <div class="post-card-img img-cruise">🏝️</div>
+        <div class="post-card-body">
+          <span class="post-category">🚢 Cruises</span>
+          <h3>Everything You Need to Know About Castaway Cay</h3>
+          <p>Disney's private island in the Bahamas is one of the most magical stops on any Disney Cruise — here's how to make the most of your day there with kids of all ages.</p>
+          <div class="post-footer">
+            <span class="post-date">February 2025</span>
+            <span class="post-arrow">Read More →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="post-card reveal">
+        <div class="post-card-img img-universal">⚡</div>
+        <div class="post-card-body">
+          <span class="post-category">🎢 Universal</span>
+          <h3>Epic Universe: Everything We Know So Far</h3>
+          <p>Universal's brand new theme park opened in 2025 — and it's already being called a game-changer. Here's a full breakdown of every world, every ride, and what families should know before visiting.</p>
+          <div class="post-footer">
+            <span class="post-date">May 2025</span>
+            <span class="post-arrow">Read More →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="post-card reveal">
+        <div class="post-card-img img-allincl">🌴</div>
+        <div class="post-card-body">
+          <span class="post-category">🌴 All-Inclusive</span>
+          <h3>Beaches vs. Sandals: Which Resort Brand Is Right for You?</h3>
+          <p>Same company, very different experiences. Beaches is built for families — Sandals is for couples only. Here's how to choose the right brand and the right location for your trip.</p>
+          <div class="post-footer">
+            <span class="post-date">January 2025</span>
+            <span class="post-arrow">Read More →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="post-card reveal">
+        <div class="post-card-img img-tips">💡</div>
+        <div class="post-card-body">
+          <span class="post-category">💡 Planning Tips</span>
+          <h3>Why You Should Always Book With a Travel Agent (Not Direct)</h3>
+          <p>Spoiler: it costs you nothing extra. Here's the full case for why using a travel agent gets you more perks, saves you hours of research, and gives you someone in your corner if things go wrong.</p>
+          <div class="post-footer">
+            <span class="post-date">December 2024</span>
+            <span class="post-arrow">Read More →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="post-card reveal">
+        <div class="post-card-img img-disney">🎒</div>
+        <div class="post-card-body">
+          <span class="post-category">🏰 Disney Tips</span>
+          <h3>What to Pack for Disney World: The Complete Family Checklist</h3>
+          <p>Comfortable shoes, ponchos, and a portable charger are just the start. Here's the complete packing list for a Disney World trip that every family should save before they travel.</p>
+          <div class="post-footer">
+            <span class="post-date">November 2024</span>
+            <span class="post-arrow">Read More →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="post-card reveal">
+        <div class="post-card-img img-tips">✈️</div>
+        <div class="post-card-body">
+          <span class="post-category">💡 Planning Tips</span>
+          <h3>How to Plan a Multi-Generational Family Vacation Everyone Will Love</h3>
+          <p>Grandparents, parents, toddlers, and teens all in one trip — it's a balancing act. Here's how to plan a vacation that genuinely works for every age and every personality.</p>
+          <div class="post-footer">
+            <span class="post-date">October 2024</span>
+            <span class="post-arrow">Read More →</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <h2>Get Tips Delivered to Your Inbox ✨</h2>
+  <p>Sign up for occasional travel tips, Disney news, cruise deals, and destination guides — straight from me to you. No spam, ever.</p>
+  <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+    <input type="email" name="Email" placeholder="your@email.com" required>
+    <button type="submit">Subscribe</button>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="font-size:1.2rem;">Gather <span style="color:#fff;">&</span> Go Travel Co.</a>
+      <p>Family vacation specialists & Disney planners. Proudly part of Boardwalk Travel Agency.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="disney.html">Disney Vacations</a></li>
+        <li><a href="cruises.html">Cruises</a></li>
+        <li><a href="universal.html">Universal Orlando</a></li>
+        <li><a href="allInclusive.html">All-Inclusive Resorts</a></li>
+        <li><a href="blog.html">Tips & Guides</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:gatherandgotc@gmail.com">gatherandgotc@gmail.com</a></li>
+        <li><a href="disney.html#disney-form">Free Consultation</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Gather & Go Travel Co. All rights reserved.</p>
+    <p>Member of Boardwalk Travel Agency</p>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+document.addEventListener('mousemove', (e) => {
+  if (Math.random() > 0.75) {
+    const s = document.createElement('div'); s.className = 'sparkle';
+    s.style.left = e.clientX + 'px'; s.style.top = e.clientY + 'px';
+    const c = ['#f5a623','#FFD700','#00b4d8','#fff'];
+    s.style.background = c[Math.floor(Math.random()*c.length)];
+    document.body.appendChild(s); setTimeout(() => s.remove(), 600);
+  }
+});
+
+function handleNewsletterSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  btn.textContent = '✅ Subscribed!';
+  btn.style.background = '#22c55e';
+  btn.disabled = true;
+}
+</script>
+</body>
+</html>
