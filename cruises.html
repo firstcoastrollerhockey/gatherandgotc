@@ -54,7 +54,7 @@ section{padding:80px 40px;}
 .cruise-lines{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;margin-top:40px;}
 .cl-card{border-radius:22px;overflow:hidden;border:1.5px solid rgba(26,107,181,0.12);transition:transform 0.25s,box-shadow 0.25s;}
 .cl-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.1);}
-.cl-header{padding:32px 28px 24px;position:relative;}
+.cl-header{padding:32px 28px 24px;position:relative;overflow:hidden;min-height:160px;display:flex;align-items:flex-end;}
 .cl-disney{background:linear-gradient(135deg,#0a1e4a,#1a4a8a,#0090c0);}
 .cl-royal{background:linear-gradient(135deg,#1a0a4a,#3a1a8a,#6a40c0);}
 .cl-celebrity{background:linear-gradient(135deg,#1a3a1a,#2a6a3a,#3a9a5a);}
@@ -255,7 +255,7 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
       <div class="cl-card">
         <div class="cl-header cl-disney" style="background-image:url('https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/disneymagic.jpeg');background-size:cover;background-position:center;position:relative;">
           <div style="position:absolute;inset:0;background:rgba(10,22,40,0.55);"></div>
-          <div style="position:relative;z-index:2;padding-top:70px;">
+          <div style="position:relative;z-index:2;">
           <div class="cl-badge badge-fav" style="position:absolute;top:16px;right:16px;">Our #1 Pick</div>
           <h3>Disney Cruise Line</h3>
           <p>The ultimate family cruise experience</p>
@@ -277,7 +277,7 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
       <div class="cl-card">
         <div class="cl-header cl-royal" style="background-image:url('https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/RoyalCarribean.jpg');background-size:cover;background-position:center;position:relative;">
           <div style="position:absolute;inset:0;background:rgba(10,22,40,0.55);"></div>
-          <div style="position:relative;z-index:2;padding-top:70px;">
+          <div style="position:relative;z-index:2;">
           <div class="cl-badge badge-pop" style="position:absolute;top:16px;right:16px;">Most Popular</div>
           <h3>Royal Caribbean</h3>
           <p>Mega-ships packed with adventure</p>
