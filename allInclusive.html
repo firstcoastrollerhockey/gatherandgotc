@@ -19,9 +19,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.9
 .nav-links a:hover,.nav-links a.active{color:var(--gold);}
 .nav-cta{background:var(--gold)!important;color:var(--navy)!important;padding:8px 18px;border-radius:50px;font-weight:800!important;}
 
-.hero{min-height:60vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-align:center;padding:140px 40px 80px;background:var(--navy);}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(0,119,182,0.4) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 20% 20%,rgba(45,106,79,0.25) 0%,transparent 55%);}
-.hero-content{position:relative;z-index:2;max-width:750px;}
+.hero{min-height:60vh;background:linear-gradient(rgba(10,22,40,0.45),rgba(10,22,40,0.45)),url('https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/sandalshome.jpeg') center center/cover no-repeat;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-align:center;padding:140px 40px 80px;}
+.hero-bg{display:none;}
+.hero-content{position:relative;z-index:2;max-width:750px;text-shadow:0 2px 12px rgba(0,0,0,0.8);}
+.eyebrow{text-shadow:none;}
 .eyebrow{display:inline-block;background:rgba(245,166,35,0.15);border:1px solid rgba(245,166,35,0.5);color:var(--gold);font-size:0.78rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:6px 18px;border-radius:50px;margin-bottom:20px;}
 .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:20px;}
 .hero h1 em{font-style:italic;color:var(--gold);}
@@ -331,9 +332,9 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
       </div>
       <div class="resort-dest-grid reveal">
         <div class="resort-dest-card">
-          <div class="rd-img rd-jamaica">
-            <div class="rd-icon">🌿</div>
-            <div class="rd-label"><h4>Jamaica</h4><p>Multiple Sandals locations</p></div>
+          <div class="rd-img rd-jamaica" style="background-image:url('https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/sandalsjamaica.jpeg');background-size:cover;background-position:center;position:relative;">
+            <div style="position:absolute;inset:0;background:rgba(0,0,0,0.3);"></div>
+            <div class="rd-label" style="position:relative;z-index:2;text-shadow:0 1px 6px rgba(0,0,0,1);"><h4>Jamaica</h4><p>Multiple Sandals locations</p></div>
           </div>
           <div class="rd-body">
             <span class="rd-brand brand-sandals">Sandals Only</span>
@@ -341,9 +342,9 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
           </div>
         </div>
         <div class="resort-dest-card">
-          <div class="rd-img rd-st-lucia">
-            <div class="rd-icon">🌋</div>
-            <div class="rd-label"><h4>St. Lucia</h4><p>Arguably the most romantic</p></div>
+          <div class="rd-img rd-st-lucia" style="background-image:url('https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/SandalsStlucia.jpeg');background-size:cover;background-position:center;position:relative;">
+            <div style="position:absolute;inset:0;background:rgba(0,0,0,0.3);"></div>
+            <div class="rd-label" style="position:relative;z-index:2;text-shadow:0 1px 6px rgba(0,0,0,1);"><h4>St. Lucia</h4><p>Arguably the most romantic</p></div>
           </div>
           <div class="rd-body">
             <span class="rd-brand brand-sandals">Sandals Only</span>
@@ -351,9 +352,9 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
           </div>
         </div>
         <div class="resort-dest-card">
-          <div class="rd-img rd-bahamas">
-            <div class="rd-icon">🐠</div>
-            <div class="rd-label"><h4>The Bahamas</h4><p>Royal Bahamian & Emerald Bay</p></div>
+          <div class="rd-img rd-bahamas" style="background-image:url('https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/sandalsbahamas.jpeg');background-size:cover;background-position:center;position:relative;">
+            <div style="position:absolute;inset:0;background:rgba(0,0,0,0.3);"></div>
+            <div class="rd-label" style="position:relative;z-index:2;text-shadow:0 1px 6px rgba(0,0,0,1);"><h4>The Bahamas</h4><p>Crystal-clear water & stunning reefs</p></div>
           </div>
           <div class="rd-body">
             <span class="rd-brand brand-sandals">Sandals Only</span>
@@ -361,9 +362,9 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
           </div>
         </div>
         <div class="resort-dest-card">
-          <div class="rd-img rd-antigua">
-            <div class="rd-icon">⛵</div>
-            <div class="rd-label"><h4>Antigua</h4><p>365 beaches — one for every day</p></div>
+          <div class="rd-img rd-antigua" style="background-image:url('https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/sandalsantigua.jpeg');background-size:cover;background-position:center;position:relative;">
+            <div style="position:absolute;inset:0;background:rgba(0,0,0,0.3);"></div>
+            <div class="rd-label" style="position:relative;z-index:2;text-shadow:0 1px 6px rgba(0,0,0,1);"><h4>Antigua</h4><p>365 beaches — one for every day</p></div>
           </div>
           <div class="rd-body">
             <span class="rd-brand brand-sandals">Sandals Only</span>
