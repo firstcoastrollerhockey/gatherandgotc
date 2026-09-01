@@ -21,7 +21,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.9
 .nav-cta{background:var(--gold)!important;color:var(--navy)!important;padding:8px 18px;border-radius:50px;font-weight:800!important;}
 
 /* HERO */
-.hero{min-height:60vh;background:linear-gradient(rgba(10,22,40,0.35), rgba(10,22,40,0.35)), url('https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/DonaldDisney.jpg') center center / cover no-repeat;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-align:center;padding:140px 40px 80px;}
+.hero{min-height:60vh;background:var(--navy);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-align:center;padding:140px 40px 80px;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(26,107,181,0.4) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 20% 20%,rgba(0,180,216,0.15) 0%,transparent 55%);}
 .hero-content{position:relative;z-index:2;max-width:750px;text-shadow:0 2px 12px rgba(0,0,0,0.7);}
 .eyebrow{text-shadow:none;}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 30% 80%,rgba(26,107,181,0.4) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 80% 20%,rgba(245,166,35,0.15) 0%,transparent 55%);}
@@ -176,7 +177,7 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="eyebrow">🏰 Walt Disney World Specialists</div>
+    <div class="eyebrow">✨ Specializing in Disney Vacations</div>
     <h1>Where Every Day Feels Like<br><em>Pure Magic</em></h1>
     <p>From value stays to deluxe resorts, character dining to fireworks over the castle — we plan every detail of your perfect Disney vacation so your family just has to show up and enjoy.</p>
     <a href="#disney-form" class="btn-primary">✨ Start My Disney Trip</a>
@@ -191,7 +192,7 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
       <div>
         <span class="section-eyebrow">Why Book With Us</span>
         <h2 class="section-title">Disney Planning Done <em>Right</em></h2>
-        <p class="section-sub">Disney World is 47 square miles of magic — and one of the most complex vacations to plan. We've spent years mastering every detail so your trip is seamless from day one.</p>
+        <p class="section-sub">Walt Disney World® Resort is 47 square miles of magic — and one of the most complex vacations to plan. We've spent years mastering every detail so your trip is seamless from day one.</p>
         <ul class="perks-list reveal">
           <li><span class="perk-check">✓</span> Custom day-by-day park itineraries for your family's ages & interests</li>
           <li><span class="perk-check">✓</span> Dining reservations secured — including hard-to-get character meals</li>
@@ -203,7 +204,8 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
         </ul>
       </div>
       <div>
-        <img src="https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/castlefireworks.jpg" alt="Cinderella's Castle Fireworks" style="width:100%;height:320px;object-fit:cover;border-radius:16px;">
+        <img src="https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/castlefireworks.jpg" alt="Cinderella Castle Fireworks — Walt Disney World® Resort" style="width:100%;height:320px;object-fit:cover;border-radius:16px;">
+        <p style="font-size:0.7rem;color:rgba(0,0,0,0.4);margin-top:6px;text-align:right;">©Disney</p>
       </div>
     </div>
   </div>
@@ -262,7 +264,7 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
           <p>Walking distance to parks, breathtaking theming, signature dining, concierge-level service, and the finest amenities Disney has to offer. A once-in-a-lifetime splurge your family will never forget.</p>
           <div class="resort-price">Resorts include: Grand Floridian, Polynesian, Contemporary, Wilderness Lodge</div>
           <ul style="list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:7px;">
-            <li style="font-size:0.83rem;color:var(--text-mid);display:flex;gap:8px;align-items:center;"><span style="color:#9d174d;font-size:0.7rem;">✦</span> Walking/monorail access to Magic Kingdom</li>
+            <li style="font-size:0.83rem;color:var(--text-mid);display:flex;gap:8px;align-items:center;"><span style="color:#9d174d;font-size:0.7rem;">✦</span> Walking/monorail access to Magic Kingdom® Park</li>
             <li style="font-size:0.83rem;color:var(--text-mid);display:flex;gap:8px;align-items:center;"><span style="color:#9d174d;font-size:0.7rem;">✦</span> Signature & character dining on-site</li>
             <li style="font-size:0.83rem;color:var(--text-mid);display:flex;gap:8px;align-items:center;"><span style="color:#9d174d;font-size:0.7rem;">✦</span> Club Level concierge available</li>
             <li style="font-size:0.83rem;color:var(--text-mid);display:flex;gap:8px;align-items:center;"><span style="color:#9d174d;font-size:0.7rem;">✦</span> Extended Evening Hours access</li>
@@ -284,35 +286,35 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
     </div>
     <div class="parks-grid reveal">
       <div class="park-card">
-        <div class="park-img park-mk" style="height:220px;border-radius:18px;background-image:url('https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/MagicKingdom.jpg');background-size:cover;background-position:center;">
-          <div class="park-label">
-            <h3>Magic Kingdom</h3>
-            <p>Cinderella's Castle, classic rides & nightly fireworks</p>
-          </div>
+        <img src="https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/MagicKingdom.jpg" alt="Magic Kingdom® Park" style="width:100%;height:200px;object-fit:cover;display:block;">
+        <div style="padding:16px 18px;">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px;">Magic Kingdom® Park</h3>
+          <p style="font-size:0.82rem;color:var(--text-mid);line-height:1.5;">Cinderella Castle, classic rides & nightly fireworks</p>
+          <p style="font-size:0.7rem;color:rgba(0,0,0,0.4);margin-top:8px;">©Disney</p>
         </div>
       </div>
       <div class="park-card">
-        <div class="park-img park-ep" style="height:220px;border-radius:18px;background-image:url('https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/Epcot.jpg');background-size:cover;background-position:center;">
-          <div class="park-label">
-            <h3>EPCOT</h3>
-            <p>World cultures, Guardians coaster & festivals year-round</p>
-          </div>
+        <img src="https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/Epcot.jpg" alt="EPCOT®" style="width:100%;height:200px;object-fit:cover;display:block;">
+        <div style="padding:16px 18px;">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px;">EPCOT®</h3>
+          <p style="font-size:0.82rem;color:var(--text-mid);line-height:1.5;">World cultures, Guardians coaster & festivals year-round</p>
+          <p style="font-size:0.7rem;color:rgba(0,0,0,0.4);margin-top:8px;">©Disney</p>
         </div>
       </div>
       <div class="park-card">
-        <div class="park-img park-hs" style="height:220px;border-radius:18px;background-image:url('https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/hollywoodstudios.avif');background-size:cover;background-position:center;">
-          <div class="park-label">
-            <h3>Hollywood Studios</h3>
-            <p>Star Wars: Galaxy's Edge, Tower of Terror & Toy Story Land</p>
-          </div>
+        <img src="https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/hollywoodstudios.avif" alt="Disney's Hollywood Studios®" style="width:100%;height:200px;object-fit:cover;display:block;">
+        <div style="padding:16px 18px;">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px;">Disney's Hollywood Studios®</h3>
+          <p style="font-size:0.82rem;color:var(--text-mid);line-height:1.5;">Star Wars: Galaxy's Edge®, Tower of Terror & Toy Story Land</p>
+          <p style="font-size:0.7rem;color:rgba(0,0,0,0.4);margin-top:8px;">©Disney</p>
         </div>
       </div>
       <div class="park-card">
-        <div class="park-img park-ak" style="height:220px;border-radius:18px;background-image:url('https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/animalkingdom.avif');background-size:cover;background-position:center;">
-          <div class="park-label">
-            <h3>Animal Kingdom</h3>
-            <p>Pandora — Avatar, Kilimanjaro Safaris & Festival of the Lion King</p>
-          </div>
+        <img src="https://raw.githubusercontent.com/firstcoastrollerhockey/gatherandgotc/main/animalkingdom.avif" alt="Disney's Animal Kingdom® Theme Park" style="width:100%;height:200px;object-fit:cover;display:block;">
+        <div style="padding:16px 18px;">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px;">Disney's Animal Kingdom® Theme Park</h3>
+          <p style="font-size:0.82rem;color:var(--text-mid);line-height:1.5;">Pandora — The World of Avatar, Kilimanjaro Safaris® & Festival of the Lion King</p>
+          <p style="font-size:0.7rem;color:rgba(0,0,0,0.4);margin-top:8px;">©Disney</p>
         </div>
       </div>
     </div>
@@ -350,7 +352,7 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
         <div class="dining-icon">🥂</div>
         <span class="dining-tag">Adults Too</span>
         <h3>Date Night Dining</h3>
-        <p>EPCOT's World Showcase has incredible international dining. Top it off with drinks around World Showcase Lagoon while the kids sleep at the resort.</p>
+        <p>EPCOT®'s World Showcase has incredible international dining. Top it off with drinks around World Showcase Lagoon while the kids sleep at the resort.</p>
       </div>
     </div>
     <div style="margin-top:36px;" class="reveal">
@@ -507,10 +509,10 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
         <div class="form-group full">
           <label>Which Parks Are You Most Excited About?</label>
           <div class="checkbox-group">
-            <label class="checkbox-label"><input type="checkbox" name="Park - Magic Kingdom"> 🏰 Magic Kingdom</label>
-            <label class="checkbox-label"><input type="checkbox" name="Park - EPCOT"> 🌍 EPCOT</label>
-            <label class="checkbox-label"><input type="checkbox" name="Park - Hollywood Studios"> 🎬 Hollywood Studios</label>
-            <label class="checkbox-label"><input type="checkbox" name="Park - Animal Kingdom"> 🦁 Animal Kingdom</label>
+            <label class="checkbox-label"><input type="checkbox" name="Park - Magic Kingdom"> Magic Kingdom® Park</label>
+            <label class="checkbox-label"><input type="checkbox" name="Park - EPCOT"> EPCOT®</label>
+            <label class="checkbox-label"><input type="checkbox" name="Park - Hollywood Studios"> Disney's Hollywood Studios®</label>
+            <label class="checkbox-label"><input type="checkbox" name="Park - Animal Kingdom"> Disney's Animal Kingdom® Theme Park</label>
             <label class="checkbox-label"><input type="checkbox" name="Park - Water Parks"> 🌊 Water Parks</label>
           </div>
         </div>
@@ -549,7 +551,7 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
   <div class="footer-inner">
     <div class="footer-brand">
       <a href="index.html" class="nav-logo" style="font-size:1.2rem;">Gather <span style="color:#fff;">&</span> Go Travel Co.</a>
-      <p>Disney World specialists & family vacation planners. Proudly part of Boardwalk Travel Agency.</p>
+      <p>Specializing in Disney Vacations & family vacation planning. Proudly part of Boardwalk Travel Agency.</p>
     </div>
     <div class="footer-col">
       <h4>Explore</h4>
@@ -569,9 +571,12 @@ footer{background:var(--navy);padding:40px 40px 24px;border-top:1px solid rgba(2
       </ul>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>© 2025 Gather & Go Travel Co. All rights reserved.</p>
-    <p>Member of Boardwalk Travel Agency</p>
+  <div class="footer-bottom" style="flex-direction:column;gap:10px;text-align:center;">
+    <div style="display:flex;justify-content:space-between;width:100%;">
+      <p>© 2025 Gather & Go Travel Co. All rights reserved.</p>
+      <p>Member of Boardwalk Travel Agency</p>
+    </div>
+    <p style="font-size:0.68rem;color:rgba(255,255,255,0.22);max-width:900px;">©Disney. Walt Disney World® Resort, Magic Kingdom® Park, EPCOT®, Disney's Hollywood Studios®, and Disney's Animal Kingdom® Theme Park are registered trademarks of The Walt Disney Company. Gather & Go Travel Co. is an independent travel agency and is not affiliated with or endorsed by The Walt Disney Company.</p>
   </div>
 </footer>
 
